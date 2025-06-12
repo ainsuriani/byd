@@ -6,37 +6,56 @@
   <title>BYD - About</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f9f9f9;
+      color: #333;
     }
     header, footer {
       background-color: #fd97db;
       color: white;
-      padding: 1em;
+      padding: 1.5em 1em;
       text-align: center;
     }
     nav a {
       margin: 0 1em;
       color: white;
       text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     main {
-      padding: 2em;
+      padding: 3em 1em;
       display: flex;
       justify-content: center;
+      background-image: url('https://www.byd.com/etc.clientlibs/byd-site/clientlibs/clientlib-base/resources/img/hero-img.jpg');
+      background-size: cover;
+      background-position: center;
     }
     section {
-      max-width: 800px;
-      background-color: white;
+      max-width: 900px;
+      background-color: rgba(255, 255, 255, 0.95);
       padding: 2em;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+    }
+    h1, h2 {
+      color: #fd97db;
     }
     h2 {
-      color: #fd97db;
+      margin-top: 1.5em;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
     }
     footer a {
       color: white;
@@ -75,3 +94,4 @@
   </footer>
 </body>
 </html>
+
