@@ -1,35 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BYD - Home</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+    }
+    header, footer {
+      background-color: #e60012;
+      color: white;
+      padding: 1.5em 1em;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2em;
+      text-align: center;
+    }
+    .intro {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .social-links a {
+      margin: 0 1em;
+      color: #e60012;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    .language-faq {
+      margin-top: 2em;
+    }
+    .language-faq button {
+      margin: 0.5em;
+      padding: 0.5em 1em;
+      background-color: #e60012;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .language-faq button:hover {
+      background-color: #cc0010;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>BYD</h1>
+    <h1>Welcome to BYD</h1>
     <nav>
       <a href="about.html">About</a>
       <a href="vehicles.html">Vehicle</a>
       <a href="shop.html">Shop</a>
     </nav>
-    <button>Language</button>
-    <button>FAQs</button>
   </header>
 
   <main>
-    <section>
-      <p>Welcome to BYD's official site. Scroll down to learn more.</p>
+    <section class="intro">
+      <p>Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.</p>
+      <div class="language-faq">
+        <button>🌐 Language</button>
+        <button>❓ FAQs</button>
+      </div>
+      <div class="social-links">
+        <p>Follow us:</p>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">TikTok</a>
-    </div>
-    <p><a href="#">Cookies</a> | <a href="#">Privacy Policy</a></p>
+    <p><a href="#" style="color:white; text-decoration:underline;">Cookies</a> | <a href="#" style="color:white; text-decoration:underline;">Privacy Policy</a></p>
   </footer>
 </body>
 </html>
