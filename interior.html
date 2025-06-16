@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BYD - About</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    header {
+      background: linear-gradient(90deg, #333333, #555555);
+      color: white;
+      padding: 2em 1em;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      letter-spacing: 3px;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      font-family: 'Orbitron', sans-serif;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px #f06292, 0 0 20px #f06292; }
+      50% { text-shadow: 0 0 20px #f06292, 0 0 30px #f06292; }
+    }
+    nav {
+      margin-top: 1em;
+    }
+    nav a {
+      margin: 0 1em;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #bbbbbb;
+      text-decoration: underline;
+    }
+    main {
+      padding: 3em 1em;
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(to bottom right, #1f1f1f, #2c2c2c);
+      animation: fadeIn 1s ease-in;
+    }
+    section {
+      max-width: 900px;
+      background-color: rgba(40, 40, 40, 0.95);
+      padding: 2em;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    section:hover {
+      transform: scale(1.01);
+    }
+    h2 {
+      color: #f06292;
+      border-left: 6px solid #f06292;
+      padding-left: 10px;
+      margin-top: 2em;
+      font-size: 1.8em;
+      text-align: left;
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+    .hero {
+      margin-top: 2em;
+    }
+    .hero img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(240, 98, 146, 0.4);
+    }
+    footer {
+      background-color: #333;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5em 1em;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to BYD</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="vehicles.html">Vehicle</a>
+      <a href="interior.html">Interior</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
