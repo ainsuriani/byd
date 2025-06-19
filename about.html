@@ -4,22 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BYD - About Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d6a66c.js" crossorigin="anonymous"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
       background-color: #fff0f5;
       color: #333;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
       background-color: #f8a5c2;
       color: #fff;
       padding: 2em 1em;
-      text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -27,10 +37,12 @@
       letter-spacing: 2px;
       margin: 0;
       font-family: 'Orbitron', sans-serif;
+      text-align: center;
     }
 
     nav {
       margin-top: 1em;
+      text-align: center;
     }
 
     nav a {
@@ -50,7 +62,51 @@
       color: #333;
     }
 
+    .top-toolbar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .toggle {
+      padding: 8px 14px;
+      background-color: #f78fb3;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .toggle.active {
+      background-color: #f5cd79;
+      color: #333;
+    }
+
+    .faq-dropdown {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: #fff8fc;
+      color: #333;
+      border: 2px solid #f78fb3;
+      border-radius: 12px;
+      padding: 1em;
+      width: 280px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    .faq-dropdown h3 {
+      margin-top: 0;
+      color: #d63384;
+    }
+
     main {
+      flex: 1;
       padding: 3em 1em;
       max-width: 1000px;
       margin: 0 auto;
@@ -81,9 +137,18 @@
     footer {
       background-color: #f8a5c2;
       color: #fff;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1.5em 1em;
-      margin-top: 3em;
+      margin-top: auto;
+    }
+
+    footer .social-icons a {
+      color: white;
+      margin-right: 10px;
+      font-size: 1.3em;
+      text-decoration: none;
     }
 
     footer p {
@@ -91,48 +156,151 @@
       font-size: 0.9em;
     }
 
-    footer a {
-      color: #fff;
-      text-decoration: underline;
+    @media screen and (max-width: 600px) {
+      .top-toolbar {
+        flex-direction: column;
+        right: 10px;
+        top: 10px;
+      }
+
+      .faq-dropdown {
+        right: 10px;
+        width: 90%;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      footer .social-icons {
+        margin-bottom: 0.5em;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to BYD</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="vehicles.html">Vehicle</a>
-      <a href="interior.html">Interior</a>
-      <a href="shop.html">Shop</a>
-    </nav>
-  </header>
+  <div class="wrapper">
+    <header>
+      <h1 id="main-heading">Welcome to BYD</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="vehicles.html">Vehicle</a>
+        <a href="interior.html">Interior</a>
+        <a href="shop.html">Shop</a>
+      </nav>
 
-  <main>
-    <div class="hero">
-      <video autoplay muted loop playsinline controls width="100%" height="auto">
-        <source src="video.mp4/Unleash the Future with BYD Seal.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+      <div class="top-toolbar">
+        <button class="toggle active" id="lang-en">🌐 English</button>
+        <button class="toggle" id="lang-my">🌐 Melayu</button>
+        <button class="toggle" id="faq-toggle">❓ FAQ</button>
+      </div>
 
-    <h2>Who We Are</h2>
-    <p>BYD (Build Your Dreams) is a global high-tech company leveraging innovation to improve lives. We focus on electronics, automotive, new energy, and rail transit.</p>
+      <div class="faq-dropdown" id="faq-box">
+        <h3 id="faq-heading">Frequently Asked Questions</h3>
+        <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
+        <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
+        <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
+      </div>
+    </header>
 
-    <h2>Our Mission</h2>
-    <p>We aim to lead in clean energy and transport, reduce fossil fuel dependence, and build a sustainable future.</p>
+    <main>
+      <div class="hero">
+        <video autoplay muted loop playsinline controls>
+          <source src="video.mp4/Unleash the Future with BYD Seal.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-    <h2>Innovation & Sustainability</h2>
-    <p>As a top manufacturer of EVs and batteries, BYD pioneers with tech like the Blade Battery and e-Platform 3.0 to drive eco-conscious innovation.</p>
+      <h2>Who We Are</h2>
+      <p>BYD (Build Your Dreams) is a global high-tech company leveraging innovation to improve lives. We focus on electronics, automotive, new energy, and rail transit.</p>
 
-    <h2>Global Impact</h2>
-    <p>Operating in over 50 countries, BYD is shaping clean energy mobility around the world.</p>
-  </main>
+      <h2>Our Mission</h2>
+      <p>We aim to lead in clean energy and transport, reduce fossil fuel dependence, and build a sustainable future.</p>
 
-  <footer>
-    <p>© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</p>
-  </footer>
+      <h2>Innovation & Sustainability</h2>
+      <p>As a top manufacturer of EVs and batteries, BYD pioneers with tech like the Blade Battery and e-Platform 3.0 to drive eco-conscious innovation.</p>
+
+      <h2>Global Impact</h2>
+      <p>Operating in over 50 countries, BYD is shaping clean energy mobility around the world.</p>
+    </main>
+
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/byd_global" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <p id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    const enBtn = document.getElementById('lang-en');
+    const myBtn = document.getElementById('lang-my');
+    const faqToggle = document.getElementById('faq-toggle');
+    const faqBox = document.getElementById('faq-box');
+
+    const translations = {
+      en: {
+        heading: "Welcome to BYD",
+        faqTitle: "Frequently Asked Questions",
+        faq1q: "Q: What does BYD stand for?",
+        faq1a: "A: Build Your Dreams",
+        faq2q: "Q: Where can I test drive BYD cars?",
+        faq2a: "A: You can visit any official BYD showroom across Malaysia.",
+        faq3q: "Q: Are BYD vehicles fully electric?",
+        faq3a: "A: Yes, BYD specializes in 100% electric and hybrid vehicles.",
+        footer: "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved."
+      },
+      my: {
+        heading: "Selamat Datang ke BYD",
+        faqTitle: "Soalan Lazim",
+        faq1q: "S: Apa maksud BYD?",
+        faq1a: "J: Bina Impian Anda",
+        faq2q: "S: Di mana saya boleh pandu uji kereta BYD?",
+        faq2a: "J: Anda boleh lawati mana-mana bilik pameran rasmi BYD di seluruh Malaysia.",
+        faq3q: "S: Adakah kenderaan BYD sepenuhnya elektrik?",
+        faq3a: "J: Ya, BYD mengkhusus dalam kenderaan elektrik dan hibrid sepenuhnya.",
+        footer: "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara."
+      }
+    };
+
+    function switchLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('main-heading').textContent = t.heading;
+      document.getElementById('faq-heading').textContent = t.faqTitle;
+      document.getElementById('faq1-q').textContent = t.faq1q;
+      document.getElementById('faq1-a').textContent = t.faq1a;
+      document.getElementById('faq2-q').textContent = t.faq2q;
+      document.getElementById('faq2-a').textContent = t.faq2a;
+      document.getElementById('faq3-q').textContent = t.faq3q;
+      document.getElementById('faq3-a').textContent = t.faq3a;
+      document.getElementById('footer-text').textContent = t.footer;
+    }
+
+    // Language toggle logic
+    enBtn.addEventListener('click', () => {
+      switchLanguage('en');
+      enBtn.classList.add('active');
+      myBtn.classList.remove('active');
+    });
+
+    myBtn.addEventListener('click', () => {
+      switchLanguage('my');
+      myBtn.classList.add('active');
+      enBtn.classList.remove('active');
+    });
+
+    // FAQ toggle
+    faqToggle.addEventListener('click', () => {
+      faqBox.style.display = faqBox.style.display === 'block' ? 'none' : 'block';
+      faqToggle.classList.toggle('active');
+    });
+
+    // Default to English
+    switchLanguage('en');
+  </script>
 </body>
 </html>
-
