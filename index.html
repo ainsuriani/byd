@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BYD - Home Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #fff0f5;
@@ -100,34 +99,30 @@
       padding: 3em 1em;
       max-width: 1000px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    h2 {
+    #typed-text {
+      font-size: 1.4em;
+      font-weight: 600;
       color: #d63384;
-      border-left: 5px solid #d63384;
-      padding-left: 10px;
-      margin-top: 2em;
-      font-size: 1.8em;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .typing {
-      font-size: 1.2em;
-      border-right: 2px solid #d63384;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(60, end), blink 0.8s step-end infinite;
-      max-width: 100%;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+    .cursor {
+      display: inline-block;
+      color: #d63384;
+      animation: blink 1s infinite;
     }
 
     @keyframes blink {
-      from, to { border-color: transparent; }
-      50% { border-color: #d63384; }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .social-links {
@@ -164,6 +159,7 @@
         right: 10px;
         top: 10px;
       }
+
       .faq-dropdown {
         right: 10px;
         width: 90%;
@@ -187,7 +183,6 @@
       <button class="toggle" id="faq-toggle">❓ FAQ</button>
     </div>
 
-    <!-- FAQ dropdown under the top right button -->
     <div class="faq-dropdown" id="faq-box">
       <h3 id="faq-heading">Frequently Asked Questions</h3>
       <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
@@ -198,7 +193,7 @@
 
   <main>
     <section class="intro">
-      <p id="welcome-text" class="typing"></p>
+      <p id="welcome-text"><span id="typed-text"></span><span class="cursor">|</span></p>
 
       <div class="social-links">
         <p id="follow-text">Follow us:</p>
@@ -218,12 +213,10 @@
     const myBtn = document.getElementById('lang-my');
     const faqToggle = document.getElementById('faq-toggle');
     const faqBox = document.getElementById('faq-box');
-    const welcomeText = document.getElementById('welcome-text');
 
     const translations = {
       en: {
         heading: "Welcome to BYD",
-        welcome: "Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.",
         nav: ["About", "Vehicle", "Interior", "Shop"],
         faqTitle: "Frequently Asked Questions",
         faq1q: "Q: What does BYD stand for?",
@@ -237,7 +230,6 @@
       },
       my: {
         heading: "Selamat Datang ke BYD",
-        welcome: "Selamat datang ke BYD - Bina Impian Anda. Terokai rangkaian kenderaan elektrik inovatif kami, fahami misi kami untuk masa depan lestari, dan ikuti perkembangan terkini komuniti global kami.",
         nav: ["Tentang Kami", "Kenderaan", "Dalaman", "Kedai"],
         faqTitle: "Soalan Lazim",
         faq1q: "S: Apa maksud BYD?",
@@ -251,9 +243,51 @@
       }
     };
 
-    function switchLanguage(lang) {
-      const t = translations[lang];
+    const phrases = {
+      en: [
+        "Welcome to BYD - Build Your Dreams.",
+        "Explore our innovative electric vehicles.",
+        "Driving into a sustainable future together."
+      ],
+      my: [
+        "Selamat datang ke BYD - Bina Impian Anda.",
+        "Terokai kenderaan elektrik inovatif kami.",
+        "Menuju masa depan lestari bersama-sama."
+      ]
+    };
 
+    let lang = 'en';
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentPhrase = phrases[lang][phraseIndex];
+      const display = currentPhrase.substring(0, charIndex);
+      document.getElementById('typed-text').textContent = display;
+
+      if (!isDeleting && charIndex < currentPhrase.length) {
+        charIndex++;
+        setTimeout(typeLoop, 80);
+      } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(typeLoop, 40);
+      } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) {
+          phraseIndex = (phraseIndex + 1) % phrases[lang].length;
+        }
+        setTimeout(typeLoop, 1500);
+      }
+    }
+
+    function switchLanguage(newLang) {
+      lang = newLang;
+      phraseIndex = 0;
+      charIndex = 0;
+      isDeleting = false;
+
+      const t = translations[lang];
       document.getElementById('main-heading').textContent = t.heading;
       document.getElementById('nav-about').textContent = t.nav[0];
       document.getElementById('nav-vehicle').textContent = t.nav[1];
@@ -268,14 +302,11 @@
       document.getElementById('faq3-a').textContent = t.faq3a;
       document.getElementById('follow-text').textContent = t.follow;
       document.getElementById('footer-text').textContent = t.footer;
-
-      welcomeText.classList.remove('typing');
-      void welcomeText.offsetWidth;
-      welcomeText.textContent = t.welcome;
-      welcomeText.classList.add('typing');
     }
 
+    // Initialize
     switchLanguage('en');
+    typeLoop();
 
     enBtn.addEventListener('click', () => {
       switchLanguage('en');
@@ -296,4 +327,3 @@
   </script>
 </body>
 </html>
-
