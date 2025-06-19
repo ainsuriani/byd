@@ -76,6 +76,26 @@
       color: #333;
     }
 
+    .faq-dropdown {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      background-color: #fff8fc;
+      color: #333;
+      border: 2px solid #f78fb3;
+      border-radius: 12px;
+      padding: 1em;
+      width: 280px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    .faq-dropdown h3 {
+      margin-top: 0;
+      color: #d63384;
+    }
+
     main {
       padding: 3em 1em;
       max-width: 1000px;
@@ -90,19 +110,24 @@
       font-size: 1.8em;
     }
 
-    p {
-      font-size: 1.1em;
-      line-height: 1.7;
-      margin-bottom: 1.5em;
+    .typing {
+      font-size: 1.2em;
+      border-right: 2px solid #d63384;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(60, end), blink 0.8s step-end infinite;
+      max-width: 100%;
     }
 
-    .faq-content {
-      display: none;
-      background-color: #fff8fc;
-      border-left: 4px solid #d63384;
-      padding: 1em;
-      margin-top: 1em;
-      border-radius: 8px;
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #d63384; }
     }
 
     .social-links {
@@ -139,6 +164,10 @@
         right: 10px;
         top: 10px;
       }
+      .faq-dropdown {
+        right: 10px;
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -157,20 +186,19 @@
       <button class="toggle" id="lang-my">🌐 Melayu</button>
       <button class="toggle" id="faq-toggle">❓ FAQ</button>
     </div>
+
+    <!-- FAQ dropdown under the top right button -->
+    <div class="faq-dropdown" id="faq-box">
+      <h3 id="faq-heading">Frequently Asked Questions</h3>
+      <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
+      <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
+      <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
+    </div>
   </header>
 
   <main>
     <section class="intro">
-      <p id="welcome-text">
-        Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.
-      </p>
-
-      <div class="faq-content" id="faq-box">
-        <h3 id="faq-heading">Frequently Asked Questions</h3>
-        <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
-        <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
-        <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
-      </div>
+      <p id="welcome-text" class="typing"></p>
 
       <div class="social-links">
         <p id="follow-text">Follow us:</p>
@@ -190,6 +218,7 @@
     const myBtn = document.getElementById('lang-my');
     const faqToggle = document.getElementById('faq-toggle');
     const faqBox = document.getElementById('faq-box');
+    const welcomeText = document.getElementById('welcome-text');
 
     const translations = {
       en: {
@@ -224,8 +253,8 @@
 
     function switchLanguage(lang) {
       const t = translations[lang];
+
       document.getElementById('main-heading').textContent = t.heading;
-      document.getElementById('welcome-text').textContent = t.welcome;
       document.getElementById('nav-about').textContent = t.nav[0];
       document.getElementById('nav-vehicle').textContent = t.nav[1];
       document.getElementById('nav-interior').textContent = t.nav[2];
@@ -239,7 +268,14 @@
       document.getElementById('faq3-a').textContent = t.faq3a;
       document.getElementById('follow-text').textContent = t.follow;
       document.getElementById('footer-text').textContent = t.footer;
+
+      welcomeText.classList.remove('typing');
+      void welcomeText.offsetWidth;
+      welcomeText.textContent = t.welcome;
+      welcomeText.classList.add('typing');
     }
+
+    switchLanguage('en');
 
     enBtn.addEventListener('click', () => {
       switchLanguage('en');
