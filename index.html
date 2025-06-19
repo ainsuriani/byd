@@ -19,7 +19,7 @@
       background-color: #f8a5c2;
       color: #fff;
       padding: 2em 1em;
-      text-align: center;
+      position: relative;
     }
 
     header h1 {
@@ -27,10 +27,12 @@
       letter-spacing: 2px;
       margin: 0;
       font-family: 'Orbitron', sans-serif;
+      text-align: center;
     }
 
     nav {
       margin-top: 1em;
+      text-align: center;
     }
 
     nav a {
@@ -46,6 +48,31 @@
 
     nav a:hover,
     nav a.active {
+      background-color: #f5cd79;
+      color: #333;
+    }
+
+    /* Top-right language/FAQ toolbar */
+    .top-toolbar {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 0.5em;
+    }
+
+    .top-toolbar .toggle {
+      padding: 8px 14px;
+      background-color: #f78fb3;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .top-toolbar .toggle.active {
       background-color: #f5cd79;
       color: #333;
     }
@@ -68,29 +95,6 @@
       font-size: 1.1em;
       line-height: 1.7;
       margin-bottom: 1.5em;
-    }
-
-    .language-faq {
-      margin: 2em 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-    }
-
-    .language-faq .toggle {
-      padding: 10px 20px;
-      background-color: #f78fb3;
-      border: none;
-      border-radius: 25px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .language-faq .toggle.active {
-      background-color: #f5cd79;
-      color: #333;
     }
 
     .faq-content {
@@ -129,6 +133,14 @@
       color: #fff;
       text-decoration: underline;
     }
+
+    @media screen and (max-width: 600px) {
+      .top-toolbar {
+        flex-direction: column;
+        right: 10px;
+        top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -140,17 +152,19 @@
       <a href="interior.html">Interior</a>
       <a href="shop.html">Shop</a>
     </nav>
+
+    <div class="top-toolbar">
+      <button class="toggle" id="lang-en">English</button>
+      <button class="toggle" id="lang-my">Malay</button>
+      <button class="toggle" id="faq-toggle">FAQs</button>
+    </div>
   </header>
 
   <main>
     <section class="intro">
-      <p id="welcome-text">Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.</p>
-
-      <div class="language-faq">
-        <button class="toggle" id="lang-en">English</button>
-        <button class="toggle" id="lang-my">Malay</button>
-        <button class="toggle" id="faq-toggle">FAQs</button>
-      </div>
+      <p id="welcome-text">
+        Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.
+      </p>
 
       <div class="faq-content" id="faq-box">
         <h3>Frequently Asked Questions</h3>
@@ -173,10 +187,11 @@
   </footer>
 
   <script>
-    // Language toggle logic
     const enBtn = document.getElementById('lang-en');
     const myBtn = document.getElementById('lang-my');
     const welcomeText = document.getElementById('welcome-text');
+    const faqToggle = document.getElementById('faq-toggle');
+    const faqBox = document.getElementById('faq-box');
 
     enBtn.addEventListener('click', () => {
       welcomeText.textContent = "Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.";
@@ -190,10 +205,6 @@
       enBtn.classList.remove('active');
     });
 
-    // FAQ toggle logic
-    const faqToggle = document.getElementById('faq-toggle');
-    const faqBox = document.getElementById('faq-box');
-
     faqToggle.addEventListener('click', () => {
       faqBox.style.display = faqBox.style.display === 'block' ? 'none' : 'block';
       faqToggle.classList.toggle('active');
@@ -201,3 +212,4 @@
   </script>
 </body>
 </html>
+
