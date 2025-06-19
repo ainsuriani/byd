@@ -52,7 +52,6 @@
       color: #333;
     }
 
-    /* Top-right language/FAQ toolbar */
     .top-toolbar {
       position: absolute;
       top: 20px;
@@ -145,18 +144,18 @@
 </head>
 <body>
   <header>
-    <h1>Welcome to BYD</h1>
+    <h1 id="main-heading">Welcome to BYD</h1>
     <nav>
-      <a href="about.html">About</a>
-      <a href="vehicles.html">Vehicle</a>
-      <a href="interior.html">Interior</a>
-      <a href="shop.html">Shop</a>
+      <a href="about.html" id="nav-about">About</a>
+      <a href="vehicles.html" id="nav-vehicle">Vehicle</a>
+      <a href="interior.html" id="nav-interior">Interior</a>
+      <a href="shop.html" id="nav-shop">Shop</a>
     </nav>
 
     <div class="top-toolbar">
-      <button class="toggle" id="lang-en">English</button>
-      <button class="toggle" id="lang-my">Malay</button>
-      <button class="toggle" id="faq-toggle">FAQs</button>
+      <button class="toggle active" id="lang-en">🌐 English</button>
+      <button class="toggle" id="lang-my">🌐 Melayu</button>
+      <button class="toggle" id="faq-toggle">❓ FAQ</button>
     </div>
   </header>
 
@@ -167,15 +166,15 @@
       </p>
 
       <div class="faq-content" id="faq-box">
-        <h3>Frequently Asked Questions</h3>
-        <p><strong>Q: What does BYD stand for?</strong><br>A: Build Your Dreams</p>
-        <p><strong>Q: Where can I test drive BYD cars?</strong><br>A: You can visit any official BYD showroom across Malaysia.</p>
-        <p><strong>Q: Are BYD vehicles fully electric?</strong><br>A: Yes, BYD specializes in 100% electric and hybrid vehicles.</p>
+        <h3 id="faq-heading">Frequently Asked Questions</h3>
+        <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
+        <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
+        <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
       </div>
 
       <div class="social-links">
-        <p>Follow us:</p>
-        <a href="https://www.instagram.com/byd_global?igsh=MTh0aXg5bjJjY3ptcg==" target="_blank">Instagram</a>
+        <p id="follow-text">Follow us:</p>
+        <a href="https://www.instagram.com/byd_global" target="_blank">Instagram</a>
         <a href="#">Facebook</a>
         <a href="#">TikTok</a>
       </div>
@@ -183,24 +182,73 @@
   </main>
 
   <footer>
-    <p>© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</p>
+    <p id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</p>
   </footer>
 
   <script>
     const enBtn = document.getElementById('lang-en');
     const myBtn = document.getElementById('lang-my');
-    const welcomeText = document.getElementById('welcome-text');
     const faqToggle = document.getElementById('faq-toggle');
     const faqBox = document.getElementById('faq-box');
 
+    const translations = {
+      en: {
+        heading: "Welcome to BYD",
+        welcome: "Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.",
+        nav: ["About", "Vehicle", "Interior", "Shop"],
+        faqTitle: "Frequently Asked Questions",
+        faq1q: "Q: What does BYD stand for?",
+        faq1a: "A: Build Your Dreams",
+        faq2q: "Q: Where can I test drive BYD cars?",
+        faq2a: "A: You can visit any official BYD showroom across Malaysia.",
+        faq3q: "Q: Are BYD vehicles fully electric?",
+        faq3a: "A: Yes, BYD specializes in 100% electric and hybrid vehicles.",
+        follow: "Follow us:",
+        footer: "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved."
+      },
+      my: {
+        heading: "Selamat Datang ke BYD",
+        welcome: "Selamat datang ke BYD - Bina Impian Anda. Terokai rangkaian kenderaan elektrik inovatif kami, fahami misi kami untuk masa depan lestari, dan ikuti perkembangan terkini komuniti global kami.",
+        nav: ["Tentang Kami", "Kenderaan", "Dalaman", "Kedai"],
+        faqTitle: "Soalan Lazim",
+        faq1q: "S: Apa maksud BYD?",
+        faq1a: "J: Bina Impian Anda",
+        faq2q: "S: Di mana saya boleh pandu uji kereta BYD?",
+        faq2a: "J: Anda boleh lawati mana-mana bilik pameran rasmi BYD di seluruh Malaysia.",
+        faq3q: "S: Adakah kenderaan BYD sepenuhnya elektrik?",
+        faq3a: "J: Ya, BYD mengkhusus dalam kenderaan elektrik dan hibrid sepenuhnya.",
+        follow: "Ikuti kami:",
+        footer: "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara."
+      }
+    };
+
+    function switchLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById('main-heading').textContent = t.heading;
+      document.getElementById('welcome-text').textContent = t.welcome;
+      document.getElementById('nav-about').textContent = t.nav[0];
+      document.getElementById('nav-vehicle').textContent = t.nav[1];
+      document.getElementById('nav-interior').textContent = t.nav[2];
+      document.getElementById('nav-shop').textContent = t.nav[3];
+      document.getElementById('faq-heading').textContent = t.faqTitle;
+      document.getElementById('faq1-q').textContent = t.faq1q;
+      document.getElementById('faq1-a').textContent = t.faq1a;
+      document.getElementById('faq2-q').textContent = t.faq2q;
+      document.getElementById('faq2-a').textContent = t.faq2a;
+      document.getElementById('faq3-q').textContent = t.faq3q;
+      document.getElementById('faq3-a').textContent = t.faq3a;
+      document.getElementById('follow-text').textContent = t.follow;
+      document.getElementById('footer-text').textContent = t.footer;
+    }
+
     enBtn.addEventListener('click', () => {
-      welcomeText.textContent = "Welcome to BYD - Build Your Dreams. Discover our range of innovative electric vehicles, explore our mission for a sustainable future, and stay updated with the latest from our global community.";
+      switchLanguage('en');
       enBtn.classList.add('active');
       myBtn.classList.remove('active');
     });
 
     myBtn.addEventListener('click', () => {
-      welcomeText.textContent = "Selamat datang ke BYD - Bina Impian Anda. Terokai rangkaian kenderaan elektrik inovatif kami, fahami misi kami untuk masa depan lestari, dan ikuti perkembangan terkini komuniti global kami.";
+      switchLanguage('my');
       myBtn.classList.add('active');
       enBtn.classList.remove('active');
     });
