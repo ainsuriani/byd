@@ -135,19 +135,29 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .social-links {
-      margin-top: 2em;
+    .floating-social {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
     }
 
-    .social-links p {
-      margin-bottom: 0.5em;
-    }
-
-    .social-links a {
-      margin-right: 1em;
-      color: #d63384;
+    .floating-social a {
+      background-color: #f78fb3;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .floating-social a:hover {
+      background-color: #f5cd79;
+      color: #333;
     }
 
     footer {
@@ -174,36 +184,11 @@
         right: 10px;
         width: 90%;
       }
-    }
 
-    /* Floating Social Buttons */
-    .floating-social {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 100;
-    }
-
-    .floating-social a {
-      background-color: #f78fb3;
-      color: white;
-      padding: 10px 14px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background-color 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .floating-social a:hover {
-      background-color: #f5cd79;
-      color: #333;
+      .floating-social {
+        bottom: 10px;
+        right: 10px;
+      }
     }
   </style>
 </head>
@@ -235,13 +220,7 @@
     <main>
       <section class="intro">
         <p id="welcome-text"><span id="typed-text"></span><span class="cursor">|</span></p>
-
-        <div class="social-links">
-          <p id="follow-text">Follow us:</p>
-          <a href="https://www.instagram.com/byd_global" target="_blank">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">TikTok</a>
-        </div>
+        <!-- Removed old social links -->
       </section>
     </main>
 
@@ -349,10 +328,10 @@
       document.getElementById('faq2-a').textContent = t.faq2a;
       document.getElementById('faq3-q').textContent = t.faq3q;
       document.getElementById('faq3-a').textContent = t.faq3a;
-      document.getElementById('follow-text').textContent = t.follow;
       document.getElementById('footer-text').textContent = t.footer;
     }
 
+    // Initialize
     switchLanguage('en');
     typeLoop();
 
