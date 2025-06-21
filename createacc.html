@@ -71,8 +71,11 @@
     if (email && password) {
       const user = { name, email, password };
       localStorage.setItem('bydUser', JSON.stringify(user));
-      alert("Account created successfully! Please sign in.");
-      window.location.href = 'sign.html';
+      // ✅ Auto redirect after saving
+      alert("Account created successfully! Redirecting to sign in...");
+      setTimeout(() => {
+        window.location.href = 'sign.html';
+      }, 1000); // 1-second delay for user to see message
     } else {
       alert("Please fill in all fields.");
     }
