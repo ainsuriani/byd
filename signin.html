@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BYD - Sign In</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffeaf4;
+      color: #333;
+    }
+
+    header {
+      background-color: #f9a8d4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5em;
+      color: white;
+      margin: 0;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 8px 15px;
+      background-color: #f9a8d4;
+      border-radius: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .nav-btn.active {
+      background-color: #fde68a;
+      color: #000;
+    }
+
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .language-btn {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+      background-color: #fde68a;
+    }
+
+    .language-btn.active {
+      background-color: #f9a8d4;
+      color: white;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #f9a8d4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #ec4899;
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #f9a8d4;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+    }
+  </style>
+  <script>
+    function toggleLanguage(lang) {
+      const english = {
+        title: "Sign In to Your Account",
+        email: "Email",
+        password: "Password",
+        login: "Sign In",
+        new: "New user? ",
+        here: "Click here"
+      };
+
+      const malay = {
+        title: "Log Masuk Akaun Anda",
+        email: "Emel",
+        password: "Katalaluan",
+        login: "Log Masuk",
+        new: "Pengguna baru? ",
+        here: "Klik di sini"
+      };
+
+      const content = lang === 'ms' ? malay : english;
+      document.getElementById("form-title").textContent = content.title;
+      document.getElementById("email-label").textContent = content.email;
+      document.getElementById("password-label").textContent = content.password;
+      document.getElementById("login-btn").value = content.login;
+      document.getElementById("new-text").textContent = content.new;
+      document.getElementById("here-link").textContent = content.here;
+
+      document.getElementById("lang-en").classList.toggle("active", lang === 'en');
+      document.getElementById("lang-ms").classList.toggle("active", lang === 'ms');
+    }
+  </script>
+</head>
+<body onload="toggleLanguage('en')">
+  <header>
+    <h1>Welcome to BYD</h1>
+    <nav>
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="about.html" class="nav-btn">About</a>
+      <a href="vehicle.html" class="nav-btn">Vehicle</a>
+      <a href="interior.html" class="nav-btn">Interior</a>
+      <a href="shop.html" class="nav-btn">Shop</a>
+      <a href="sign.html" class="nav-btn active">Sign In</a>
+    </nav>
+    <div class="language-toggle">
+      <button id="lang-en" class="language-btn active" onclick="toggleLanguage('en')">🌐 English</button>
+      <button id="lang-ms" class="language-btn" onclick="toggleLanguage('ms')">🌐 Melayu</button>
+    </div>
+  </header>
+
+  <div class="form-container">
+    <h2 id="form-title">Sign In to Your Account</h2>
+    <form>
+      <label id="email-label" for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Enter your email" required>
+
+      <label id="password-label" for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <input type="submit" class="btn" id="login-btn" value="Sign In">
+    </form>
+    <div class="signup-link">
+      <span id="new-text">New user? </span><a id="here-link" href="create-account.html">Click here</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://instagram.com" target="_blank">📷</a>
+      <a href="https://facebook.com" target="_blank">📘</a>
+      <a href="https://tiktok.com" target="_blank">🎵</a>
+    </div>
+    <p>&copy; 2025 BYD Motors. All rights reserved.</p>
+  </footer>
+</body>
+</html>
