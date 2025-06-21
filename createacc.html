@@ -44,6 +44,12 @@
       text-align: center;
       margin-top: 15px;
     }
+
+    .form-box .signin-link a {
+      color: #f472b6;
+      text-decoration: none;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -71,11 +77,10 @@
     if (email && password) {
       const user = { name, email, password };
       localStorage.setItem('bydUser', JSON.stringify(user));
-      // ✅ Auto redirect after saving
       alert("Account created successfully! Redirecting to sign in...");
       setTimeout(() => {
         window.location.href = 'signin.html';
-      }, 1000); // 1-second delay for user to see message
+      }, 1000); // 1-second delay
     } else {
       alert("Please fill in all fields.");
     }
