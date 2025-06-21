@@ -67,6 +67,13 @@
 </div>
 
 <script>
+  // ✅ Redirect if already logged in
+  window.onload = function() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      window.location.href = 'shop.html';
+    }
+  };
+
   function loginUser(event) {
     event.preventDefault();
     const email = document.getElementById('email').value.trim();
@@ -76,7 +83,9 @@
 
     if (storedUser && email === storedUser.email && password === storedUser.password) {
       alert("Login successful!");
-      window.location.href = 'shop.html';
+      localStorage.setItem('isLoggedIn', 'true');               // ✅ Remember user is logged in
+      localStorage.setItem('loggedInName', storedUser.name);    // ✅ Save user's name
+      window.location.href = 'shop.html';                       // ✅ Redirect to shop
     } else {
       alert("Invalid email or password.");
     }
