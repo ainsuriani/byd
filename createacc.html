@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account - BYD</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #ffeaf4;
+    }
+
+    header {
+      background-color: #f9a8d4;
+      padding: 10px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    nav {
+      margin-top: 5px;
+    }
+
+    .nav-btn {
+      display: inline-block;
+      margin: 0 8px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      background-color: #f9a8d4;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-btn.active {
+      background-color: #fde68a;
+      color: black;
+    }
+
+    .language-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+
+    .language-btn {
+      margin: 0 5px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+      background-color: #fde68a;
+      color: black;
+      border: none;
+    }
+
+    .form-box {
+      max-width: 400px;
+      margin: 60px auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .form-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .form-box input[type="submit"] {
+      background-color: #f9a8d4;
+      color: white;
+      font-weight: bold;
+      border: none;
+    }
+
+    .form-box .signin-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #f9a8d4;
+      padding: 15px;
+      margin-top: 60px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 22px;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="nav-btn">Home</a>
+    <a href="about.html" class="nav-btn">About</a>
+    <a href="vehicle.html" class="nav-btn">Vehicle</a>
+    <a href="interior.html" class="nav-btn">Interior</a>
+    <a href="shop.html" class="nav-btn">Shop</a>
+    <a href="sign.html" class="nav-btn">Sign In</a>
+  </nav>
+  <div class="language-toggle">
+    <button class="language-btn">🌐 English</button>
+    <button class="language-btn">🌐 Melayu</button>
+  </div>
+</header>
+
+<div class="form-box">
+  <h2>Create Account</h2>
+  <form onsubmit="event.preventDefault(); window.location.href='sign.html';">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <input type="submit" value="Create Account">
+  </form>
+  <div class="signin-link">
+    Already have an account? <a href="sign.html">Sign In</a>
+  </div>
+</div>
+
+<footer>
+  <div class="social-icons">
+    <a href="https://instagram.com" target="_blank">📷</a>
+    <a href="https://facebook.com" target="_blank">📘</a>
+    <a href="https://tiktok.com" target="_blank">🎵</a>
+  </div>
+  <p>&copy; 2025 BYD Motors. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
