@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BYD - Home Page</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BYD - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
@@ -13,6 +13,7 @@
       color: #111;
     }
 
+    /* HEADER & NAVIGATION */
     header {
       background-color: #f7a5c2;
       padding: 1em;
@@ -38,14 +39,11 @@
       color: #000;
     }
 
-    .header-right a, .header-right button {
+    .header-right a {
       color: #000;
       margin-left: 1em;
       font-weight: bold;
       text-decoration: none;
-      background: none;
-      border: none;
-      cursor: pointer;
     }
 
     .header-right img {
@@ -73,10 +71,9 @@
       border-radius: 5px;
     }
 
+    /* MAIN */
     main {
       padding: 2em 1em;
-      max-width: 1000px;
-      margin: auto;
       text-align: center;
     }
 
@@ -97,6 +94,7 @@
       50% { opacity: 0; }
     }
 
+    /* FAQ */
     .faq-dropdown {
       display: none;
       position: absolute;
@@ -117,37 +115,12 @@
       color: #d63384;
     }
 
-    .floating-social {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 999;
-    }
-
-    .floating-social a {
-      background-color: #f78fb3;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-
-    .floating-social a:hover {
-      background-color: #f5cd79;
-      color: #333;
-    }
-
+    /* FOOTER */
     footer {
       background-color: #f7a5c2;
       padding: 1.5em 1em 0.5em;
       font-size: 0.9em;
       color: #000;
-      text-align: center;
     }
 
     .footer-container {
@@ -171,7 +144,6 @@
       margin-left: 1em;
       color: #000;
       font-size: 1.2em;
-      transition: color 0.3s;
       text-decoration: none;
     }
 
@@ -183,51 +155,47 @@
       text-align: center;
       margin-top: 0.5em;
     }
-
-    @media screen and (max-width: 600px) {
-      .header-container, .footer-container {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <div class="header-container">
       <div class="header-left">
         <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
-      <div class="header-title" id="main-heading">Welcome to BYD</div>
+      <div class="header-title" id="main-heading">BYD Home</div>
       <div class="header-right">
-        <button id="lang-en">🌐 English</button>
-        <button id="lang-my">🌐 Melayu</button>
-        <button id="faq-toggle">❓ FAQ</button>
+        <a href="faq.html">FAQ</a>
+        <a href="#"><img src="image/globe.png" alt="Language" id="lang-toggle"></a>
       </div>
     </div>
     <nav>
       <a href="index.html" class="active">Home</a>
-      <a href="about.html" id="nav-about">About</a>
-      <a href="vehicles.html" id="nav-vehicle">Vehicle</a>
-      <a href="interior.html" id="nav-interior">Interior</a>
-      <a href="shop.html" id="nav-shop">Shop</a>
+      <a href="about.html">About</a>
+      <a href="vehicles.html">Vehicle</a>
+      <a href="interior.html">Interior</a>
+      <a href="shop.html">Shop</a>
     </nav>
     <div class="faq-dropdown" id="faq-box">
       <h3 id="faq-heading">Frequently Asked Questions</h3>
       <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
-      <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
-      <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
+      <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: Visit any official BYD showroom across Malaysia.</span></p>
+      <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in electric and hybrid vehicles.</span></p>
     </div>
   </header>
 
+  <!-- Main -->
   <main>
-    <p id="welcome-text"><span id="typed-text"></span><span class="cursor">|</span></p>
+    <p><span id="typed-text"></span><span class="cursor">|</span></p>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-left">
-        <a href="#">Cookies</a> | <a href="#">Privacy Policy</a>
+        <a href="#">Cookies</a> | 
+        <a href="#">Privacy Policy</a>
       </div>
       <div class="footer-right">
         <a href="https://www.instagram.com/bydmalaysia" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -238,65 +206,17 @@
     <div class="footer-bottom" id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</div>
   </footer>
 
-  <div class="floating-social">
-    <a href="https://www.instagram.com/byd_global" target="_blank">📸 Instagram</a>
-    <a href="https://www.facebook.com/BYDglobal" target="_blank">📘 Facebook</a>
-    <a href="https://www.tiktok.com/@byd_global" target="_blank">🎵 TikTok</a>
-  </div>
-
   <script>
-    const enBtn = document.getElementById('lang-en');
-    const myBtn = document.getElementById('lang-my');
-    const faqToggle = document.getElementById('faq-toggle');
-    const faqBox = document.getElementById('faq-box');
-
-    const translations = {
-      en: {
-        heading: "Welcome to BYD",
-        nav: ["Home", "About", "Vehicle", "Interior", "Shop"],
-        faqTitle: "Frequently Asked Questions",
-        faq1q: "Q: What does BYD stand for?",
-        faq1a: "A: Build Your Dreams",
-        faq2q: "Q: Where can I test drive BYD cars?",
-        faq2a: "A: You can visit any official BYD showroom across Malaysia.",
-        faq3q: "Q: Are BYD vehicles fully electric?",
-        faq3a: "A: Yes, BYD specializes in 100% electric and hybrid vehicles.",
-        footer: "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved."
-      },
-      my: {
-        heading: "Selamat Datang ke BYD",
-        nav: ["Utama", "Tentang Kami", "Kenderaan", "Dalaman", "Kedai"],
-        faqTitle: "Soalan Lazim",
-        faq1q: "S: Apa maksud BYD?",
-        faq1a: "J: Bina Impian Anda",
-        faq2q: "S: Di mana saya boleh pandu uji kereta BYD?",
-        faq2a: "J: Anda boleh lawati mana-mana bilik pameran rasmi BYD di seluruh Malaysia.",
-        faq3q: "S: Adakah kenderaan BYD sepenuhnya elektrik?",
-        faq3a: "J: Ya, BYD mengkhusus dalam kenderaan elektrik dan hibrid sepenuhnya.",
-        footer: "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara."
-      }
-    };
-
-    const phrases = {
-      en: [
-        "Welcome to BYD - Build Your Dreams.",
-        "Explore our innovative electric vehicles.",
-        "Driving into a sustainable future together."
-      ],
-      my: [
-        "Selamat datang ke BYD - Bina Impian Anda.",
-        "Terokai kenderaan elektrik inovatif kami.",
-        "Menuju masa depan lestari bersama-sama."
-      ]
-    };
-
-    let lang = 'en';
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    // Typing effect
+    const phrases = [
+      "Welcome to BYD - Build Your Dreams.",
+      "Explore our innovative electric vehicles.",
+      "Driving into a sustainable future together."
+    ];
+    let phraseIndex = 0, charIndex = 0, isDeleting = false;
 
     function typeLoop() {
-      const currentPhrase = phrases[lang][phraseIndex];
+      const currentPhrase = phrases[phraseIndex];
       const display = currentPhrase.substring(0, charIndex);
       document.getElementById('typed-text').textContent = display;
 
@@ -308,50 +228,17 @@
         setTimeout(typeLoop, 40);
       } else {
         isDeleting = !isDeleting;
-        if (!isDeleting) {
-          phraseIndex = (phraseIndex + 1) % phrases[lang].length;
-        }
+        if (!isDeleting) phraseIndex = (phraseIndex + 1) % phrases.length;
         setTimeout(typeLoop, 1500);
       }
     }
-
-    function switchLanguage(newLang) {
-      lang = newLang;
-      phraseIndex = 0;
-      charIndex = 0;
-      isDeleting = false;
-
-      const t = translations[lang];
-      document.getElementById('main-heading').textContent = t.heading;
-      document.getElementById('faq-heading').textContent = t.faqTitle;
-      document.getElementById('faq1-q').textContent = t.faq1q;
-      document.getElementById('faq1-a').textContent = t.faq1a;
-      document.getElementById('faq2-q').textContent = t.faq2q;
-      document.getElementById('faq2-a').textContent = t.faq2a;
-      document.getElementById('faq3-q').textContent = t.faq3q;
-      document.getElementById('faq3-a').textContent = t.faq3a;
-      document.getElementById('footer-text').textContent = t.footer;
-    }
-
-    // Init
-    switchLanguage('en');
     typeLoop();
 
-    enBtn.addEventListener('click', () => {
-      switchLanguage('en');
-      enBtn.classList.add('active');
-      myBtn.classList.remove('active');
-    });
-
-    myBtn.addEventListener('click', () => {
-      switchLanguage('my');
-      myBtn.classList.add('active');
-      enBtn.classList.remove('active');
-    });
-
-    faqToggle.addEventListener('click', () => {
-      faqBox.style.display = faqBox.style.display === 'block' ? 'none' : 'block';
-      faqToggle.classList.toggle('active');
+    // FAQ toggle
+    const faqBox = document.getElementById("faq-box");
+    const langToggle = document.getElementById("lang-toggle");
+    langToggle.addEventListener("click", () => {
+      faqBox.style.display = faqBox.style.display === "block" ? "none" : "block";
     });
   </script>
 </body>
