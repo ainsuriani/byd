@@ -4,84 +4,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BYD - Home Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff0f5;
-      color: #333;
-    }
-
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #111;
     }
 
     header {
-      background-color: #f8a5c2;
-      color: #fff;
-      padding: 2em 1em;
-      position: relative;
+      background-color: #f7a5c2;
+      padding: 1em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    header h1 {
-      font-size: 3em;
-      letter-spacing: 2px;
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header-left img {
+      height: 40px;
+    }
+
+    .header-title {
+      flex: 1;
       text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #000;
+    }
+
+    .header-right a, .header-right button {
+      color: #000;
+      margin-left: 1em;
+      font-weight: bold;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .header-right img {
+      height: 20px;
+      vertical-align: middle;
     }
 
     nav {
-      margin-top: 1em;
       text-align: center;
+      margin-top: 0.5em;
     }
 
     nav a {
       margin: 0 1em;
-      color: #fff;
+      color: #000;
       text-decoration: none;
       font-weight: bold;
-      padding: 6px 12px;
-      background-color: #f78fb3;
-      border-radius: 20px;
-      transition: background-color 0.3s ease;
+      font-size: 1em;
     }
 
-    nav a:hover,
     nav a.active {
-      background-color: #f5cd79;
-      color: #333;
+      background-color: #f06292;
+      color: #fff;
+      padding: 0.3em 0.8em;
+      border-radius: 5px;
     }
 
-    .top-toolbar {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 0.5em;
+    main {
+      padding: 2em 1em;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
     }
 
-    .top-toolbar .toggle {
-      padding: 8px 14px;
-      background-color: #f78fb3;
-      border: none;
-      border-radius: 20px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    #typed-text {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #d63384;
     }
 
-    .top-toolbar .toggle.active {
-      background-color: #f5cd79;
-      color: #333;
+    .cursor {
+      display: inline-block;
+      color: #d63384;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .faq-dropdown {
@@ -102,37 +115,6 @@
     .faq-dropdown h3 {
       margin-top: 0;
       color: #d63384;
-    }
-
-    main {
-      flex: 1;
-      padding: 3em 1em;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    #typed-text {
-      font-size: 1.4em;
-      font-weight: 600;
-      color: #d63384;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .cursor {
-      display: inline-block;
-      color: #d63384;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .floating-social {
@@ -161,75 +143,101 @@
     }
 
     footer {
-      background-color: #f8a5c2;
-      color: #fff;
+      background-color: #f7a5c2;
+      padding: 1.5em 1em 0.5em;
+      font-size: 0.9em;
+      color: #000;
       text-align: center;
-      padding: 1.5em 1em;
-      margin-top: auto;
     }
 
-    footer a {
-      color: #fff;
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-left a {
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .footer-left a:hover {
       text-decoration: underline;
     }
 
+    .footer-right a {
+      margin-left: 1em;
+      color: #000;
+      font-size: 1.2em;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    .footer-right a:hover {
+      color: #f06292;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 0.5em;
+    }
+
     @media screen and (max-width: 600px) {
-      .top-toolbar {
+      .header-container, .footer-container {
         flex-direction: column;
-        right: 10px;
-        top: 10px;
-      }
-
-      .faq-dropdown {
-        right: 10px;
-        width: 90%;
-      }
-
-      .floating-social {
-        bottom: 10px;
-        right: 10px;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <header>
-      <h1 id="main-heading">Welcome to BYD</h1>
-      <nav>
-        <a href="about.html" id="nav-about">About</a>
-        <a href="vehicles.html" id="nav-vehicle">Vehicle</a>
-        <a href="interior.html" id="nav-interior">Interior</a>
-        <a href="shop.html" id="nav-shop">Shop</a>
-      </nav>
-
-      <div class="top-toolbar">
-        <button class="toggle active" id="lang-en">🌐 English</button>
-        <button class="toggle" id="lang-my">🌐 Melayu</button>
-        <button class="toggle" id="faq-toggle">❓ FAQ</button>
+  <header>
+    <div class="header-container">
+      <div class="header-left">
+        <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
-
-      <div class="faq-dropdown" id="faq-box">
-        <h3 id="faq-heading">Frequently Asked Questions</h3>
-        <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
-        <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
-        <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
+      <div class="header-title" id="main-heading">Welcome to BYD</div>
+      <div class="header-right">
+        <button id="lang-en">🌐 English</button>
+        <button id="lang-my">🌐 Melayu</button>
+        <button id="faq-toggle">❓ FAQ</button>
       </div>
-    </header>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html" id="nav-about">About</a>
+      <a href="vehicles.html" id="nav-vehicle">Vehicle</a>
+      <a href="interior.html" id="nav-interior">Interior</a>
+      <a href="shop.html" id="nav-shop">Shop</a>
+    </nav>
+    <div class="faq-dropdown" id="faq-box">
+      <h3 id="faq-heading">Frequently Asked Questions</h3>
+      <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
+      <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: You can visit any official BYD showroom across Malaysia.</span></p>
+      <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in 100% electric and hybrid vehicles.</span></p>
+    </div>
+  </header>
 
-    <main>
-      <section class="intro">
-        <p id="welcome-text"><span id="typed-text"></span><span class="cursor">|</span></p>
-        <!-- Removed old social links -->
-      </section>
-    </main>
+  <main>
+    <p id="welcome-text"><span id="typed-text"></span><span class="cursor">|</span></p>
+  </main>
 
-    <footer>
-      <p id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</p>
-    </footer>
-  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <a href="#">Cookies</a> | <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-right">
+        <a href="https://www.instagram.com/bydmalaysia" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/bydmalaysia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@bydmalaysia" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom" id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</div>
+  </footer>
 
-  <!-- Floating Social Buttons -->
   <div class="floating-social">
     <a href="https://www.instagram.com/byd_global" target="_blank">📸 Instagram</a>
     <a href="https://www.facebook.com/BYDglobal" target="_blank">📘 Facebook</a>
@@ -245,7 +253,7 @@
     const translations = {
       en: {
         heading: "Welcome to BYD",
-        nav: ["About", "Vehicle", "Interior", "Shop"],
+        nav: ["Home", "About", "Vehicle", "Interior", "Shop"],
         faqTitle: "Frequently Asked Questions",
         faq1q: "Q: What does BYD stand for?",
         faq1a: "A: Build Your Dreams",
@@ -253,12 +261,11 @@
         faq2a: "A: You can visit any official BYD showroom across Malaysia.",
         faq3q: "Q: Are BYD vehicles fully electric?",
         faq3a: "A: Yes, BYD specializes in 100% electric and hybrid vehicles.",
-        follow: "Follow us:",
         footer: "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved."
       },
       my: {
         heading: "Selamat Datang ke BYD",
-        nav: ["Tentang Kami", "Kenderaan", "Dalaman", "Kedai"],
+        nav: ["Utama", "Tentang Kami", "Kenderaan", "Dalaman", "Kedai"],
         faqTitle: "Soalan Lazim",
         faq1q: "S: Apa maksud BYD?",
         faq1a: "J: Bina Impian Anda",
@@ -266,7 +273,6 @@
         faq2a: "J: Anda boleh lawati mana-mana bilik pameran rasmi BYD di seluruh Malaysia.",
         faq3q: "S: Adakah kenderaan BYD sepenuhnya elektrik?",
         faq3a: "J: Ya, BYD mengkhusus dalam kenderaan elektrik dan hibrid sepenuhnya.",
-        follow: "Ikuti kami:",
         footer: "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara."
       }
     };
@@ -317,10 +323,6 @@
 
       const t = translations[lang];
       document.getElementById('main-heading').textContent = t.heading;
-      document.getElementById('nav-about').textContent = t.nav[0];
-      document.getElementById('nav-vehicle').textContent = t.nav[1];
-      document.getElementById('nav-interior').textContent = t.nav[2];
-      document.getElementById('nav-shop').textContent = t.nav[3];
       document.getElementById('faq-heading').textContent = t.faqTitle;
       document.getElementById('faq1-q').textContent = t.faq1q;
       document.getElementById('faq1-a').textContent = t.faq1a;
@@ -331,7 +333,7 @@
       document.getElementById('footer-text').textContent = t.footer;
     }
 
-    // Initialize
+    // Init
     switchLanguage('en');
     typeLoop();
 
