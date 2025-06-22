@@ -6,14 +6,23 @@
   <title>BYD - Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
+    }
+
+    body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff;
       color: #111;
     }
 
-    /* HEADER & NAVIGATION */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     header {
       background-color: #f7a5c2;
       padding: 1em;
@@ -71,8 +80,8 @@
       border-radius: 5px;
     }
 
-    /* MAIN */
     main {
+      flex: 1;
       padding: 2em 1em;
       text-align: center;
     }
@@ -94,7 +103,6 @@
       50% { opacity: 0; }
     }
 
-    /* FAQ */
     .faq-dropdown {
       display: none;
       position: absolute;
@@ -115,7 +123,6 @@
       color: #d63384;
     }
 
-    /* FOOTER */
     footer {
       background-color: #f7a5c2;
       padding: 1.5em 1em 0.5em;
@@ -158,54 +165,57 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="header-left">
-        <img src="image/bydlogo.png" alt="BYD Logo">
+  <div class="wrapper">
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <div class="header-left">
+          <img src="image/bydlogo.png" alt="BYD Logo">
+        </div>
+        <div class="header-title" id="main-heading">BYD Home</div>
+        <div class="header-right">
+          <a href="faq.html">FAQ</a>
+          <a href="#"><img src="image/globe.png" alt="Language" id="lang-toggle"></a>
+        </div>
       </div>
-      <div class="header-title" id="main-heading">BYD Home</div>
-      <div class="header-right">
-        <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language" id="lang-toggle"></a>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="vehicles.html">Vehicle</a>
+        <a href="interior.html">Interior</a>
+        <a href="shop.html">Shop</a>
+      </nav>
+      <div class="faq-dropdown" id="faq-box">
+        <h3 id="faq-heading">Frequently Asked Questions</h3>
+        <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
+        <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: Visit any official BYD showroom across Malaysia.</span></p>
+        <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in electric and hybrid vehicles.</span></p>
       </div>
-    </div>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="vehicles.html">Vehicle</a>
-      <a href="interior.html">Interior</a>
-      <a href="shop.html">Shop</a>
-    </nav>
-    <div class="faq-dropdown" id="faq-box">
-      <h3 id="faq-heading">Frequently Asked Questions</h3>
-      <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
-      <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: Visit any official BYD showroom across Malaysia.</span></p>
-      <p><strong id="faq3-q">Q: Are BYD vehicles fully electric?</strong><br><span id="faq3-a">A: Yes, BYD specializes in electric and hybrid vehicles.</span></p>
-    </div>
-  </header>
+    </header>
 
-  <!-- Main -->
-  <main>
-    <p><span id="typed-text"></span><span class="cursor">|</span></p>
-  </main>
+    <!-- Main -->
+    <main>
+      <p><span id="typed-text"></span><span class="cursor">|</span></p>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-left">
-        <a href="#">Cookies</a> | 
-        <a href="#">Privacy Policy</a>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <a href="#">Cookies</a> | 
+          <a href="#">Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+          <a href="https://www.instagram.com/bydmalaysia" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/bydmalaysia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@bydmalaysia" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
       </div>
-      <div class="footer-right">
-        <a href="https://www.instagram.com/bydmalaysia" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/bydmalaysia" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@bydmalaysia" target="_blank"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-    <div class="footer-bottom" id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</div>
-  </footer>
+      <div class="footer-bottom" id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</div>
+    </footer>
+  </div>
 
+  <!-- Scripts -->
   <script>
     // Typing effect
     const phrases = [
@@ -216,11 +226,9 @@
     let phraseIndex = 0, charIndex = 0, isDeleting = false;
 
     function typeLoop() {
-      const currentPhrase = phrases[phraseIndex];
-      const display = currentPhrase.substring(0, charIndex);
-      document.getElementById('typed-text').textContent = display;
-
-      if (!isDeleting && charIndex < currentPhrase.length) {
+      const phrase = phrases[phraseIndex];
+      document.getElementById('typed-text').textContent = phrase.substring(0, charIndex);
+      if (!isDeleting && charIndex < phrase.length) {
         charIndex++;
         setTimeout(typeLoop, 80);
       } else if (isDeleting && charIndex > 0) {
