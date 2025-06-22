@@ -14,7 +14,7 @@
       max-width: 400px;
       margin: 60px auto;
       background: white;
-      padding: 25px;
+      padding: 50px;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -23,7 +23,7 @@
       margin-bottom: 20px;
     }
     .form-box input {
-      width: 100%;
+      width: 95%;
       padding: 12px;
       margin: 10px 0;
       border: 1px solid #ccc;
@@ -34,6 +34,7 @@
       color: white;
       font-weight: bold;
       border: none;
+      width: 95%;
     }
     .form-box .login-link {
       text-align: center;
@@ -49,15 +50,20 @@
 <body>
 
 <div class="form-box">
-  <h2>Create Account</h2>
+  <h2>Create New Account</h2>
   <form onsubmit="registerUser(event)">
     <input type="text" id="name" placeholder="Full Name" required>
-    <input type="email" id="email" placeholder="Email" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="integer" id="phone number" placeholder="Phone number" required>
     <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="password" placeholder="Confirm Password" required>
     <input type="submit" value="Register">
   </form>
   <div class="login-link">
     Already have an account? <a href="signin.html">Sign In</a>
+    <br>
+    <br>
+    By creating an account, you agree to our Terms of Service and Privacy Policy 
   </div>
 </div>
 
