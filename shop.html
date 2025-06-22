@@ -168,6 +168,7 @@
       border-radius: 30px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       margin-bottom: 30px;
+      cursor: pointer;
     }
 
     .signin-button:hover {
@@ -221,9 +222,8 @@
           <h2 style="margin-top: 0;">BYD ATTO 3</h2>
           <p><strong>$800</strong></p>
 
-          <!-- ✅ Updated Sign In Button -->
-          <a href="signin.html" class="signin-button" target="_blank" rel="noopener noreferrer">Sign In</a>
-
+          <!-- ✅ Updated Sign In Button using JavaScript -->
+          <button class="signin-button" onclick="goToSignIn()">Sign In</button>
 
           <h3 style="margin-top: 30px;">Description</h3>
           <p>__________________________</p>
@@ -263,5 +263,12 @@
       &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
     </div>
   </footer>
+
+  <!-- ✅ JavaScript redirect for Sign In button -->
+  <script>
+    function goToSignIn() {
+      window.location.href = "signin.html";
+    }
+  </script>
 </body>
 </html>
