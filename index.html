@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BYD - Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -86,6 +86,28 @@
       text-align: center;
     }
 
+    .hero-intro .subtext {
+      font-size: 1.1em;
+      margin-top: 0.5em;
+      color: #555;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1em;
+      background-color: #f06292;
+      color: white;
+      padding: 0.8em 1.5em;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #d94c7b;
+    }
+
     #typed-text {
       font-size: 1.4em;
       font-weight: 600;
@@ -103,24 +125,69 @@
       50% { opacity: 0; }
     }
 
-    .faq-dropdown {
-      display: none;
-      position: absolute;
-      top: 70px;
-      right: 20px;
-      background-color: #fff8fc;
-      color: #333;
-      border: 2px solid #f78fb3;
-      border-radius: 12px;
-      padding: 1em;
-      width: 280px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-      z-index: 10;
+    .video-container {
+      margin: 3em 0;
+      text-align: center;
     }
 
-    .faq-dropdown h3 {
-      margin-top: 0;
+    .video-container h2 {
+      font-size: 1.8em;
       color: #d63384;
+      margin-bottom: 0.2em;
+    }
+
+    .video-caption {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 1em;
+    }
+
+    .video-container video {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .features {
+      padding: 3em 1em;
+      background-color: #fff0f5;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 1.8em;
+      color: #d63384;
+      margin-bottom: 1em;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+    }
+
+    .feature-item {
+      max-width: 280px;
+      text-align: center;
+    }
+
+    .feature-item i {
+      font-size: 2.5em;
+      color: #f06292;
+      margin-bottom: 0.5em;
+    }
+
+    .feature-item h3 {
+      font-size: 1.2em;
+      color: #333;
+      margin: 0.5em 0;
+    }
+
+    .feature-item p {
+      font-size: 1em;
+      color: #555;
     }
 
     footer {
@@ -185,7 +252,7 @@
         <a href="interior.html">Interior</a>
         <a href="shop.html">Shop</a>
       </nav>
-      <div class="faq-dropdown" id="faq-box">
+      <div class="faq-dropdown" id="faq-box" style="display: none;">
         <h3 id="faq-heading">Frequently Asked Questions</h3>
         <p><strong id="faq1-q">Q: What does BYD stand for?</strong><br><span id="faq1-a">A: Build Your Dreams</span></p>
         <p><strong id="faq2-q">Q: Where can I test drive BYD cars?</strong><br><span id="faq2-a">A: Visit any official BYD showroom across Malaysia.</span></p>
@@ -193,9 +260,46 @@
       </div>
     </header>
 
-    <!-- Main -->
+    <!-- Main Content -->
     <main>
-      <p><span id="typed-text"></span><span class="cursor">|</span></p>
+      <!-- Typing Intro -->
+      <section class="hero-intro">
+        <p><span id="typed-text"></span><span class="cursor">|</span></p>
+        <p class="subtext">Discover the innovation, power, and sustainability of BYD vehicles.</p>
+        <a href="vehicles.html" class="cta-button">Explore Our Cars</a>
+      </section>
+
+      <!-- Video -->
+      <section class="video-container">
+        <h2>Unleash the Future</h2>
+        <p class="video-caption">Experience our latest BYD innovations in motion.</p>
+        <video autoplay muted loop playsinline>
+          <source src="video/byd_ad.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <!-- Features -->
+      <section class="features">
+        <h2>Why Choose BYD?</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            <h3>Electric Performance</h3>
+            <p>Powerful EVs with cutting-edge battery technology like the Blade Battery.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-microchip"></i>
+            <h3>Smart Technology</h3>
+            <p>Seamless tech experience with e-platform 3.0 and intelligent interiors.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-globe-asia"></i>
+            <h3>Global Innovation</h3>
+            <p>Trusted in over 50 countries with a focus on sustainable progress.</p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -215,9 +319,8 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
+  <!-- JavaScript -->
   <script>
-    // Typing effect
     const phrases = [
       "Welcome to BYD - Build Your Dreams.",
       "Explore our innovative electric vehicles.",
@@ -242,7 +345,6 @@
     }
     typeLoop();
 
-    // FAQ toggle
     const faqBox = document.getElementById("faq-box");
     const langToggle = document.getElementById("lang-toggle");
     langToggle.addEventListener("click", () => {
