@@ -8,9 +8,8 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #ffeaf4;
+      background-color: #fff0f6;
     }
-
     .form-box {
       max-width: 400px;
       margin: 60px auto;
@@ -19,12 +18,10 @@
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     .form-box h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-
     .form-box input {
       width: 100%;
       padding: 12px;
@@ -32,21 +29,18 @@
       border: 1px solid #ccc;
       border-radius: 8px;
     }
-
     .form-box input[type="submit"] {
-      background-color: #f9a8d4;
+      background-color: #f472b6;
       color: white;
       font-weight: bold;
       border: none;
     }
-
-    .form-box .signin-link {
+    .form-box .login-link {
       text-align: center;
       margin-top: 15px;
     }
-
-    .form-box .signin-link a {
-      color: #f472b6;
+    .form-box .login-link a {
+      color: #d63384;
       text-decoration: none;
       font-weight: bold;
     }
@@ -60,9 +54,9 @@
     <input type="text" id="name" placeholder="Full Name" required>
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Password" required>
-    <input type="submit" value="Create Account">
+    <input type="submit" value="Register">
   </form>
-  <div class="signin-link">
+  <div class="login-link">
     Already have an account? <a href="signin.html">Sign In</a>
   </div>
 </div>
@@ -74,16 +68,10 @@
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
 
-    if (email && password) {
-      const user = { name, email, password };
-      localStorage.setItem('bydUser', JSON.stringify(user));
-      alert("Account created successfully! Redirecting to sign in...");
-      setTimeout(() => {
-        window.location.href = 'signin.html';
-      }, 1000); // 1-second delay
-    } else {
-      alert("Please fill in all fields.");
-    }
+    const user = { name, email, password };
+    localStorage.setItem('bydUser', JSON.stringify(user));
+    alert("Account created successfully!");
+    window.location.href = "signin.html";
   }
 </script>
 

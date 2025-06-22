@@ -10,7 +10,6 @@
       margin: 0;
       background-color: #ffeaf4;
     }
-
     .form-box {
       max-width: 400px;
       margin: 60px auto;
@@ -19,12 +18,10 @@
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     .form-box h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-
     .form-box input {
       width: 100%;
       padding: 12px;
@@ -32,19 +29,16 @@
       border: 1px solid #ccc;
       border-radius: 8px;
     }
-
     .form-box input[type="submit"] {
       background-color: #f9a8d4;
       color: white;
       font-weight: bold;
       border: none;
     }
-
     .form-box .signup-link {
       text-align: center;
       margin-top: 15px;
     }
-
     .form-box .signup-link a {
       color: #f472b6;
       text-decoration: none;
@@ -67,7 +61,6 @@
 </div>
 
 <script>
-  // ✅ Redirect if already logged in
   window.onload = function() {
     if (localStorage.getItem('isLoggedIn') === 'true') {
       window.location.href = 'shop.html';
@@ -83,9 +76,9 @@
 
     if (storedUser && email === storedUser.email && password === storedUser.password) {
       alert("Login successful!");
-      localStorage.setItem('isLoggedIn', 'true');               // ✅ Remember user is logged in
-      localStorage.setItem('loggedInName', storedUser.name);    // ✅ Save user's name
-      window.location.href = 'shop.html';                       // ✅ Redirect to shop
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('loggedInName', storedUser.name);
+      window.location.href = 'shop.html';
     } else {
       alert("Invalid email or password.");
     }
