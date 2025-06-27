@@ -45,18 +45,6 @@
       text-decoration: none;
       font-weight: bold;
     }
-    .password-wrapper {
-      position: relative;
-    }
-    .toggle-password {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      user-select: none;
-      font-size: 18px;
-    }
   </style>
 </head>
 <body>
@@ -65,24 +53,21 @@
   <h2>Create New Account</h2>
   <form onsubmit="registerUser(event)">
     <input type="text" id="name" placeholder="Full Name" required>
-    <input type="email" id="email" placeholder="Email Address" required>
-    <input type="tel" id="phone-number" placeholder="Phone Number" required>
-
-    <div class="password-wrapper">
-      <input type="password" id="password" placeholder="Password" required>
-      <span class="toggle-password" onclick="togglePassword('password', this)">👁️</span>
-    </div>
-
-    <div class="password-wrapper">
-      <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-      <span class="toggle-password" onclick="togglePassword('confirm-password', this)">👁️</span>
-    </div>
-
+    <input type="text" id="gender" placeholder="Gender" required>
+    <input type="integer" id="phone number" placeholder="Phone number" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="address" placeholder="Address 1" required>
+    <input type="text" id="address" placeholder="Address 2" required>
+    <input type="integer" id="postcode" placeholder="Postcode" required>
+    <input type="text" id="city" placeholder="City" required>
+    <input type="text" id="state" placeholder="State" required>
+    <input type="password" id="password" placeholder="Password" required>
     <input type="submit" value="Register">
   </form>
   <div class="login-link">
     Already have an account? <a href="signin.html">Sign In</a>
-    <br><br>
+    <br>
+    <br>
     By creating an account, you agree to our Terms of Service and Privacy Policy 
   </div>
 </div>
@@ -93,28 +78,11 @@
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
 
     const user = { name, email, password };
     localStorage.setItem('bydUser', JSON.stringify(user));
     alert("Account created successfully!");
     window.location.href = "signin.html";
-  }
-
-  function togglePassword(id, icon) {
-    const input = document.getElementById(id);
-    if (input.type === "password") {
-      input.type = "text";
-      icon.textContent = "🙈";
-    } else {
-      input.type = "password";
-      icon.textContent = "👁️";
-    }
   }
 </script>
 
