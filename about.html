@@ -49,30 +49,14 @@ header, footer {
   margin-left: 1em;
 }
 
-.language-dropdown .dropdown-content {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: 150px;
-  background: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  z-index: 1000;
-  white-space: nowrap;
-}
-
+.language-dropdown .dropdown-content,
 .faq-dropdown .faq-content {
   display: none;
   position: absolute;
-  top: 100%;
-  right: 0;
   background: #fff;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 1000;
-  padding: 1em;
-  width: 320px;
-  font-size: 0.9em;
 }
 
 .dropdown-content a {
@@ -254,15 +238,6 @@ p {
   </footer>
 
   <script>
-    // FAQ search filter (based on visible language)
-  document.getElementById('faq-search').addEventListener('input', function () {
-  const lang = document.getElementById("faq-en").style.display === 'block' ? 'faq-en' : 'faq-ms';
-  const query = this.value.toLowerCase();
-  const items = document.querySelectorAll(`#${lang} ul li`);
-  items.forEach(item => {
-    item.style.display = item.textContent.toLowerCase().includes(query) ? 'block' : 'none';
-  });
-});
     function switchLanguage(lang) {
       const texts = {
         en: {
