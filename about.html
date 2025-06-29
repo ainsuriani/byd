@@ -49,14 +49,16 @@ header, footer {
   margin-left: 1em;
 }
 
-.language-dropdown .dropdown-content,
-.faq-dropdown .faq-content {
-  display: none;
+.language-dropdown .dropdown-content {
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 150px;
   background: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 1000;
+  white-space: nowrap;
 }
 
 .dropdown-content a {
