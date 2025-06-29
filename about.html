@@ -48,6 +48,10 @@
       color: #000;
     }
 
+    .header-right {
+      position: relative;
+    }
+
     .header-right a {
       color: #000;
       margin-left: 1em;
@@ -58,6 +62,32 @@
     .header-right img {
       height: 20px;
       vertical-align: middle;
+    }
+
+    .language-dropdown {
+      display: inline-block;
+      position: relative;
+    }
+
+    .language-dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      min-width: 120px;
+      z-index: 1;
+      right: 0;
+    }
+
+    .language-dropdown .dropdown-content a {
+      padding: 10px;
+      display: block;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .language-dropdown .dropdown-content a:hover {
+      background-color: #f2f2f2;
     }
 
     nav {
@@ -109,6 +139,24 @@
       max-width: 900px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      margin-bottom: 1em;
+    }
+
+    ul.faq-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.faq-list li {
+      margin-bottom: 1em;
     }
 
     footer {
@@ -164,7 +212,13 @@
         <div class="header-title">About BYD</div>
         <div class="header-right">
           <a href="faq.html">FAQ</a>
-          <a href="#"><img src="image/globe.png" alt="Language"></a>
+          <div class="language-dropdown">
+            <a href="#"><img src="image/globe.png" alt="Language"></a>
+            <div class="dropdown-content">
+              <a href="?lang=en">English</a>
+              <a href="?lang=ms">Bahasa Melayu</a>
+            </div>
+          </div>
         </div>
       </div>
       <nav>
@@ -196,6 +250,16 @@
 
       <h2>Global Impact</h2>
       <p>Operating in over 50 countries, BYD is shaping clean energy mobility around the world.</p>
+
+      <section>
+        <h2>Frequently Asked Questions</h2>
+        <input type="text" placeholder="Search your question...">
+        <ul class="faq-list">
+          <li><strong>Q:</strong> What type of vehicles does BYD produce?<br><strong>A:</strong> BYD produces electric vehicles including cars, buses, and commercial vehicles.</li>
+          <li><strong>Q:</strong> Where is BYD located?<br><strong>A:</strong> BYD operates globally, including in over 50 countries like Malaysia, China, and Europe.</li>
+          <li><strong>Q:</strong> What is the Blade Battery?<br><strong>A:</strong> It's BYD's safe and efficient battery technology designed to reduce fire risks and increase durability.</li>
+        </ul>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -215,5 +279,15 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    const langDropdown = document.querySelector('.language-dropdown');
+    langDropdown.addEventListener('mouseenter', () => {
+      langDropdown.querySelector('.dropdown-content').style.display = 'block';
+    });
+    langDropdown.addEventListener('mouseleave', () => {
+      langDropdown.querySelector('.dropdown-content').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
