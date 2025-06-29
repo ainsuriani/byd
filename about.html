@@ -64,19 +64,21 @@
       vertical-align: middle;
     }
 
-    .language-dropdown {
+    .language-dropdown, .faq-dropdown {
       display: inline-block;
       position: relative;
     }
 
-    .language-dropdown .dropdown-content {
+    .language-dropdown .dropdown-content,
+    .faq-dropdown .faq-content {
       display: none;
       position: absolute;
       background-color: #fff;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
       min-width: 120px;
-      z-index: 1;
+      z-index: 1000;
       right: 0;
+      border-radius: 8px;
     }
 
     .language-dropdown .dropdown-content a {
@@ -88,6 +90,26 @@
 
     .language-dropdown .dropdown-content a:hover {
       background-color: #f2f2f2;
+    }
+
+    .faq-content {
+      width: 300px;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+
+    .faq-content input[type="text"] {
+      width: 100%;
+      padding: 0.5em;
+      margin-bottom: 0.8em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .faq-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
     }
 
     nav {
@@ -139,24 +161,6 @@
       max-width: 900px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 0.8em;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1em;
-      margin-bottom: 1em;
-    }
-
-    ul.faq-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul.faq-list li {
-      margin-bottom: 1em;
     }
 
     footer {
@@ -211,7 +215,21 @@
         </div>
         <div class="header-title">About BYD</div>
         <div class="header-right">
-          <a href="faq.html">FAQ</a>
+          <!-- FAQ DROPDOWN -->
+          <div class="faq-dropdown">
+            <a href="#">FAQ</a>
+            <div class="faq-content">
+              <input type="text" placeholder="Ask a question...">
+              <strong>Popular Questions</strong>
+              <ul>
+                <li><strong>Q:</strong> What vehicles does BYD make?<br><strong>A:</strong> EVs, hybrids, buses.</li>
+                <li><strong>Q:</strong> Where is BYD available?<br><strong>A:</strong> Over 50 countries.</li>
+                <li><strong>Q:</strong> What is Blade Battery?<br><strong>A:</strong> Safe, long-life EV battery.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Language Dropdown -->
           <div class="language-dropdown">
             <a href="#"><img src="image/globe.png" alt="Language"></a>
             <div class="dropdown-content">
@@ -250,16 +268,6 @@
 
       <h2>Global Impact</h2>
       <p>Operating in over 50 countries, BYD is shaping clean energy mobility around the world.</p>
-
-      <section>
-        <h2>Frequently Asked Questions</h2>
-        <input type="text" placeholder="Search your question...">
-        <ul class="faq-list">
-          <li><strong>Q:</strong> What type of vehicles does BYD produce?<br><strong>A:</strong> BYD produces electric vehicles including cars, buses, and commercial vehicles.</li>
-          <li><strong>Q:</strong> Where is BYD located?<br><strong>A:</strong> BYD operates globally, including in over 50 countries like Malaysia, China, and Europe.</li>
-          <li><strong>Q:</strong> What is the Blade Battery?<br><strong>A:</strong> It's BYD's safe and efficient battery technology designed to reduce fire risks and increase durability.</li>
-        </ul>
-      </section>
     </main>
 
     <!-- Footer -->
@@ -280,7 +288,19 @@
     </footer>
   </div>
 
+  <!-- Scripts -->
   <script>
+    // FAQ dropdown show/hide
+    const faqDropdown = document.querySelector('.faq-dropdown');
+    const faqContent = faqDropdown.querySelector('.faq-content');
+    faqDropdown.addEventListener('mouseenter', () => {
+      faqContent.style.display = 'block';
+    });
+    faqDropdown.addEventListener('mouseleave', () => {
+      faqContent.style.display = 'none';
+    });
+
+    // Language dropdown show/hide
     const langDropdown = document.querySelector('.language-dropdown');
     langDropdown.addEventListener('mouseenter', () => {
       langDropdown.querySelector('.dropdown-content').style.display = 'block';
