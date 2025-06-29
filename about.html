@@ -1,40 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BYD - About</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body 
-    { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; color: #111; }
-    header, footer { background: #f7a5c2; padding: 1em; }
-    .header-container, .footer-container {
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
-    }
-    .header-title { text-align: center; font-size: 1.8em; font-weight: bold; flex: 1; }
-    .header-right, .language-dropdown, .faq-dropdown { position: relative; display: inline-block; }
-    .header-right a, .footer-left a, .footer-right a {
-      text-decoration: none; font-weight: bold; color: #000; margin-left: 1em;
-    }
-    .language-dropdown .dropdown-content, .faq-dropdown .faq-content {
-      display: none; position: absolute; background: #fff;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-radius: 8px; z-index: 1000;
-    }
-    .dropdown-content a { display: block; padding: 10px; color: #000; }
-    .dropdown-content a:hover { background: #f2f2f2; }
-    .faq-content { width: 320px; top: 100%; right: 0; padding: 1em; font-size: 0.9em; }
-    .faq-content input { width: 100%; padding: 0.5em; margin-bottom: 0.8em; border: 1px solid #ccc; border-radius: 5px; }
-    nav { text-align: center; margin-top: 0.5em; }
-    nav a { margin: 0 1em; font-weight: bold; text-decoration: none; color: #000; }
-    nav a.active { background: #f06292; color: #fff; padding: 0.3em 0.8em; border-radius: 5px; }
-    main { padding: 2em 1em; max-width: 1000px; margin: auto; }
-    h2 { color: #f06292; font-size: 1.8em; margin-bottom: 1em; }
-    p { font-size: 1.1em; line-height: 1.7; margin-bottom: 1.5em; }
-    .video-container { text-align: center; margin: 2em 0; }
-    .video-container video { width: 100%; max-width: 900px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-    .footer-right a { font-size: 1.2em; }
-    .footer-bottom { text-align: center; margin-top: 0.5em; }
+  body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+header, footer {
+  background: #f7a5c2;
+  padding: 1em;
+}
+
+.header-container,
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  flex: 1;
+}
+
+.header-right,
+.language-dropdown,
+.faq-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.header-right a,
+.footer-left a,
+.footer-right a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  margin-left: 1em;
+}
+
+.language-dropdown .dropdown-content,
+.faq-dropdown .faq-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: #000;
+}
+
+.dropdown-content a:hover {
+  background: #f2f2f2;
+}
+
+.faq-content {
+  width: 320px;
+  top: 100%;
+  right: 0;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+.faq-content input {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+nav {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+nav a {
+  margin: 0 1em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+nav a.active {
+  background: #f06292;
+  color: #fff;
+  padding: 0.3em 0.8em;
+  border-radius: 5px;
+}
+
+main {
+  padding: 2em 1em;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h2 {
+  color: #f06292;
+  font-size: 1.8em;
+  margin-bottom: 1em;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+
+.video-container {
+  text-align: center;
+  margin: 2em 0;
+}
+
+.video-container video {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.footer-right a {
+  font-size: 1.2em;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 0.5em;
+}
   </style>
 </head>
 <body>
