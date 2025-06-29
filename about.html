@@ -10,36 +10,30 @@
       height: 100%;
       margin: 0;
     }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #fff;
       color: #111;
     }
-
     .wrapper {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
-
     header {
       background-color: #f7a5c2;
       padding: 1em;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-
     .header-left img {
       height: 40px;
     }
-
     .header-title {
       flex: 1;
       text-align: center;
@@ -47,57 +41,51 @@
       font-weight: bold;
       color: #000;
     }
-
     .header-right {
       position: relative;
     }
-
     .header-right a {
       color: #000;
       margin-left: 1em;
       font-weight: bold;
       text-decoration: none;
     }
-
     .header-right img {
       height: 20px;
       vertical-align: middle;
     }
-
     .language-dropdown, .faq-dropdown {
       display: inline-block;
       position: relative;
     }
-
-    .language-dropdown .dropdown-content,
-    .faq-dropdown .faq-content {
+    .dropdown-content, .faq-content {
       display: none;
       position: absolute;
       background-color: #fff;
       box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-      min-width: 120px;
       z-index: 1000;
-      right: 0;
       border-radius: 8px;
     }
-
-    .language-dropdown .dropdown-content a {
+    .dropdown-content {
+      min-width: 120px;
+      right: 0;
+    }
+    .dropdown-content a {
       padding: 10px;
       display: block;
       color: #000;
       text-decoration: none;
     }
-
-    .language-dropdown .dropdown-content a:hover {
+    .dropdown-content a:hover {
       background-color: #f2f2f2;
     }
-
     .faq-content {
-      width: 300px;
+      width: 320px;
+      top: 100%;
+      right: 0;
       padding: 1em;
       font-size: 0.9em;
     }
-
     .faq-content input[type="text"] {
       width: 100%;
       padding: 0.5em;
@@ -105,18 +93,10 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
-
-    .faq-content ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-    }
-
     nav {
       text-align: center;
       margin-top: 0.5em;
     }
-
     nav a {
       margin: 0 1em;
       color: #000;
@@ -124,81 +104,64 @@
       font-weight: bold;
       font-size: 1em;
     }
-
     nav a.active {
       background-color: #f06292;
       color: #fff;
       padding: 0.3em 0.8em;
       border-radius: 5px;
     }
-
     main {
       flex: 1;
       padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
     }
-
     h2 {
       color: #f06292;
       font-size: 1.8em;
       margin-bottom: 1em;
     }
-
     p {
       font-size: 1.1em;
       line-height: 1.7;
       margin-bottom: 1.5em;
     }
-
     .video-container {
       text-align: center;
       margin: 2em 0;
     }
-
     .video-container video {
       width: 100%;
       max-width: 900px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-
     footer {
       background-color: #f7a5c2;
       padding: 1.5em 1em 0.5em;
       font-size: 0.9em;
       color: #000;
     }
-
     .footer-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-
     .footer-left a {
       color: #000;
       font-weight: bold;
       text-decoration: none;
     }
-
-    .footer-left a:hover {
-      text-decoration: underline;
-    }
-
     .footer-right a {
       margin-left: 1em;
       color: #000;
       font-size: 1.2em;
-      transition: color 0.3s;
       text-decoration: none;
     }
-
     .footer-right a:hover {
       color: #f06292;
     }
-
     .footer-bottom {
       text-align: center;
       margin-top: 0.5em;
@@ -207,7 +170,6 @@
 </head>
 <body>
   <div class="wrapper">
-    <!-- Header -->
     <header>
       <div class="header-container">
         <div class="header-left">
@@ -215,21 +177,36 @@
         </div>
         <div class="header-title">About BYD</div>
         <div class="header-right">
-          <!-- FAQ DROPDOWN -->
           <div class="faq-dropdown">
             <a href="#">FAQ</a>
             <div class="faq-content">
-              <input type="text" placeholder="Ask a question...">
-              <strong>Popular Questions</strong>
-              <ul>
-                <li><strong>Q:</strong> What vehicles does BYD make?<br><strong>A:</strong> EVs, hybrids, buses.</li>
-                <li><strong>Q:</strong> Where is BYD available?<br><strong>A:</strong> Over 50 countries.</li>
-                <li><strong>Q:</strong> What is Blade Battery?<br><strong>A:</strong> Safe, long-life EV battery.</li>
-              </ul>
+              <input type="text" id="faq-search" placeholder="Search your question...">
+              <div style="margin-bottom: 0.5em;">
+                <strong>Language:</strong>
+                <button onclick="toggleFAQ('en')">EN</button>
+                <button onclick="toggleFAQ('ms')">BM</button>
+              </div>
+              <div id="faq-en">
+                <ul style="list-style: none; padding-left: 0;">
+                  <li><strong>Q:</strong> What vehicles does BYD make?<br><strong>A:</strong> EVs, hybrids, and buses.</li>
+                  <li><strong>Q:</strong> Where is BYD available?<br><strong>A:</strong> Over 50 countries worldwide.</li>
+                  <li><strong>Q:</strong> What is Blade Battery?<br><strong>A:</strong> Safe and long-lasting EV battery.</li>
+                  <li><strong>Q:</strong> Does BYD sell cars in Malaysia?<br><strong>A:</strong> Yes, through authorized dealerships.</li>
+                  <li><strong>Q:</strong> Is there a warranty?<br><strong>A:</strong> Yes, typically 6–8 years for batteries.</li>
+                </ul>
+              </div>
+              <div id="faq-ms" style="display:none;">
+                <ul style="list-style: none; padding-left: 0;">
+                  <li><strong>S:</strong> Apakah jenis kenderaan yang dikeluarkan oleh BYD?<br><strong>J:</strong> Kenderaan elektrik, hibrid dan bas.</li>
+                  <li><strong>S:</strong> Di mana BYD boleh didapati?<br><strong>J:</strong> Di lebih 50 negara seluruh dunia.</li>
+                  <li><strong>S:</strong> Apa itu Blade Battery?<br><strong>J:</strong> Bateri EV yang selamat dan tahan lama.</li>
+                  <li><strong>S:</strong> Adakah BYD menjual kereta di Malaysia?<br><strong>J:</strong> Ya, melalui pengedar sah.</li>
+                  <li><strong>S:</strong> Adakah jaminan disediakan?<br><strong>J:</strong> Ya, biasanya 6–8 tahun untuk bateri.</li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <!-- Language Dropdown -->
           <div class="language-dropdown">
             <a href="#"><img src="image/globe.png" alt="Language"></a>
             <div class="dropdown-content">
@@ -248,7 +225,6 @@
       </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
       <div class="video-container">
         <video autoplay muted loop playsinline>
@@ -256,21 +232,16 @@
           Your browser does not support the video tag.
         </video>
       </div>
-
       <h2>Who We Are</h2>
       <p>BYD (Build Your Dreams) is a global high-tech company leveraging innovation to improve lives. We focus on electronics, automotive, new energy, and rail transit.</p>
-
       <h2>Our Mission</h2>
       <p>We aim to lead in clean energy and transport, reduce fossil fuel dependence, and build a sustainable future.</p>
-
       <h2>Innovation & Sustainability</h2>
       <p>As a top manufacturer of EVs and batteries, BYD pioneers with tech like the Blade Battery and e-Platform 3.0 to drive eco-conscious innovation.</p>
-
       <h2>Global Impact</h2>
       <p>Operating in over 50 countries, BYD is shaping clean energy mobility around the world.</p>
     </main>
 
-    <!-- Footer -->
     <footer>
       <div class="footer-container">
         <div class="footer-left">
@@ -288,25 +259,33 @@
     </footer>
   </div>
 
-  <!-- Scripts -->
   <script>
-    // FAQ dropdown show/hide
     const faqDropdown = document.querySelector('.faq-dropdown');
     const faqContent = faqDropdown.querySelector('.faq-content');
-    faqDropdown.addEventListener('mouseenter', () => {
-      faqContent.style.display = 'block';
-    });
-    faqDropdown.addEventListener('mouseleave', () => {
-      faqContent.style.display = 'none';
-    });
+    faqDropdown.addEventListener('mouseenter', () => { faqContent.style.display = 'block'; });
+    faqDropdown.addEventListener('mouseleave', () => { faqContent.style.display = 'none'; });
 
-    // Language dropdown show/hide
     const langDropdown = document.querySelector('.language-dropdown');
     langDropdown.addEventListener('mouseenter', () => {
       langDropdown.querySelector('.dropdown-content').style.display = 'block';
     });
     langDropdown.addEventListener('mouseleave', () => {
       langDropdown.querySelector('.dropdown-content').style.display = 'none';
+    });
+
+    function toggleFAQ(lang) {
+      document.getElementById('faq-en').style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById('faq-ms').style.display = lang === 'ms' ? 'block' : 'none';
+    }
+
+    document.getElementById('faq-search').addEventListener('input', function() {
+      const lang = document.getElementById('faq-en').style.display === 'block' ? 'en' : 'ms';
+      const list = document.getElementById('faq-' + lang).getElementsByTagName('li');
+      const query = this.value.toLowerCase();
+      for (let item of list) {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      }
     });
   </script>
 </body>
