@@ -38,16 +38,24 @@
       color: #000;
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
     .header-right a {
       color: #000;
-      margin-left: 1em;
       font-weight: bold;
       text-decoration: none;
     }
 
-    .header-right img {
-      height: 20px;
-      vertical-align: middle;
+    .header-right select {
+      padding: 0.3em;
+      font-weight: bold;
+      border: none;
+      background: transparent;
+      cursor: pointer;
     }
 
     nav {
@@ -65,6 +73,13 @@
 
     nav a:hover {
       color: #fff;
+    }
+
+    nav a.active {
+      background-color: #f06292;
+      color: #fff;
+      padding: 0.3em 0.8em;
+      border-radius: 5px;
     }
 
     main {
@@ -154,13 +169,6 @@
       text-align: center;
       margin-top: 0.5em;
     }
-    nav a.active {
-  background-color: #f06292;
-  color: #fff;
-  padding: 0.3em 0.8em;
-  border-radius: 5px;
-}
-
   </style>
 </head>
 <body>
@@ -168,12 +176,14 @@
   <header>
     <div class="header-container">
       <div class="header-left">
-        <img src="image/bydlogo.svg" alt="BYD Logo">
+        <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
       <div class="header-title">BYD Interior</div>
       <div class="header-right">
         <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language"></a>
+        <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+  <img src="image/globe.png" alt="Language Icon" style="height: 20px;">
+</a>
       </div>
     </div>
     <nav>
@@ -188,7 +198,7 @@
   <!-- Main -->
   <main>
     <section>
-      <h2>Rhythmic Interior</h2>
+      <h2 id="title">Rhythmic Interior</h2>
       <div class="image-block">
         <img src="image/bydinterior1.jpg" alt="Interior Main">
       </div>
@@ -196,13 +206,13 @@
       <div class="text-block">
         <img src="image/bydinterior2.jpg" alt="Interior Detail">
         <div class="text-box">
-          <h3><a href="pleasure.html" style="text-decoration:none; color:inherit;">The Pleasure of Driving</a></h3>
+          <h3><a href="pleasure.html" style="text-decoration:none; color:inherit;" id="text1">The Pleasure of Driving</a></h3>
         </div>
       </div>
 
       <div class="text-block">
         <div class="text-box">
-          <h3><a href="grip.html" style="text-decoration:none; color:inherit;">Grip-Style Door Handles</a></h3>
+          <h3><a href="grip.html" style="text-decoration:none; color:inherit;" id="text2">Grip-Style Door Handles</a></h3>
         </div>
         <img src="image/interiorgrip.jpg" alt="Grip Handle">
       </div>
@@ -210,13 +220,13 @@
       <div class="text-block">
         <img src="image/interiorwireless.jpg" alt="Interior Detail">
         <div class="text-box">
-          <h3><a href="wireless.html" style="text-decoration:none; color:inherit;">Mobile phone wireless charging</a></h3>
+          <h3><a href="wireless.html" style="text-decoration:none; color:inherit;" id="text3">Mobile phone wireless charging</a></h3>
         </div>
       </div>
 
       <div class="text-block">
         <div class="text-box">
-          <h3><a href="panoramic.html" style="text-decoration:none; color:inherit;">Double-layer panoramic anti-pinch skylight</a></h3>
+          <h3><a href="panoramic.html" style="text-decoration:none; color:inherit;" id="text4">Double-layer panoramic anti-pinch skylight</a></h3>
         </div>
         <img src="image/interiordouble.jpg" alt="Panoramic View">
       </div>
@@ -224,13 +234,13 @@
       <div class="text-block">
         <img src="image/powerstation.jpg" alt="Wireless Charging">
         <div class="text-box">
-          <h3><a href="power.html" style="text-decoration:none; color:inherit;">VTOL mobile power station</a></h3>
+          <h3><a href="power.html" style="text-decoration:none; color:inherit;" id="text5">VTOL mobile power station</a></h3>
         </div>
       </div>
 
       <div class="text-block">
         <div class="text-box">
-          <h3><a href="safety.html" style="text-decoration:none; color:inherit;">Safety</a></h3>
+          <h3><a href="safety.html" style="text-decoration:none; color:inherit;" id="text6">Safety</a></h3>
         </div>
         <img src="image/interiorsafety.jpg" alt="Safety">
       </div>
@@ -239,26 +249,108 @@
 
   <!-- Footer -->
   <footer>
-  <div class="footer-container">
-    <div class="footer-left">
-      <a href="#">Cookies</a> | 
-      <a href="#">Privacy Policy</a>
+    <div class="footer-container">
+      <div class="footer-left">
+        <a href="#">Cookies</a> | 
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-right">
+        <a href="https://www.instagram.com/bydmalaysia" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/bydmalaysia" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.tiktok.com/@bydmalaysia" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
     </div>
-    <div class="footer-right">
-      <a href="https://www.instagram.com/bydmalaysia" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/bydmalaysia" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.tiktok.com/@bydmalaysia" target="_blank" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i>
-      </a>
+    <div class="footer-bottom">
+      &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
     </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
-  </div>
-</footer>
+  </footer>
+
+  <!-- Language Switch Script -->
+  <script>
+  let currentLang = 'en';
+
+  const translations = {
+    en: {
+      title: "BYD Interior",
+      rhythmic: "Rhythmic Interior",
+      pleasure: "The Pleasure of Driving",
+      grip: "Grip-Style Door Handles",
+      wireless: "Mobile phone wireless charging",
+      panoramic: "Double-layer panoramic anti-pinch skylight",
+      power: "VTOL mobile power station",
+      safety: "Safety",
+      faq: "FAQ",
+      home: "Home",
+      about: "About",
+      vehicle: "Vehicle",
+      interior: "Interior",
+      shop: "Shop",
+      cookies: "Cookies",
+      privacy: "Privacy Policy",
+    },
+    bm: {
+      title: "Rekaan Dalaman BYD",
+      rhythmic: "Rekaan Dalaman Berirama",
+      pleasure: "Keseronokan Memandu",
+      grip: "Pemegang Pintu Gaya Cengkaman",
+      wireless: "Pengecas Tanpa Wayar Telefon Bimbit",
+      panoramic: "Bumbung Panoramik Dua Lapisan Anti-Cubit",
+      power: "Stesen Kuasa Mudah Alih VTOL",
+      safety: "Ciri Keselamatan",
+      faq: "Soalan Lazim",
+      home: "Laman Utama",
+      about: "Tentang Kami",
+      vehicle: "Kenderaan",
+      interior: "Dalaman",
+      shop: "Kedai",
+      cookies: "Kuki",
+      privacy: "Dasar Privasi",
+    }
+  };
+
+  document.getElementById('lang-toggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    currentLang = currentLang === 'en' ? 'bm' : 'en';
+    updateLanguage();
+  });
+
+  function updateLanguage() {
+    const t = translations[currentLang];
+
+    document.title = t.title;
+    document.querySelector('.header-title').textContent = t.title;
+    document.querySelector('h2').textContent = t.rhythmic;
+
+    const links = {
+      faq: t.faq,
+      home: t.home,
+      about: t.about,
+      vehicle: t.vehicle,
+      interior: t.interior,
+      shop: t.shop,
+    };
+
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      const key = link.getAttribute('href').replace('.html', '');
+      if (links[key]) link.textContent = links[key];
+    });
+
+    document.querySelectorAll('h3 a').forEach((a, i) => {
+      const keys = ['pleasure', 'grip', 'wireless', 'panoramic', 'power', 'safety'];
+      if (t[keys[i]]) a.textContent = t[keys[i]];
+    });
+
+    document.querySelector('.footer-left a:nth-child(1)').textContent = t.cookies;
+    document.querySelector('.footer-left a:nth-child(3)').textContent = t.privacy;
+  }
+</script>
+
 </body>
 </html>

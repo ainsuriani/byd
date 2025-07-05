@@ -185,7 +185,7 @@
       color: #f06292;
     }
 
-    footer {
+     footer {
   background-color: #f7a5c2;
   padding: 1.5em 1em 0.5em;
   font-size: 0.9em;
@@ -227,25 +227,22 @@
 .footer-right a:hover {
   color: #f06292;
 }
-
-
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="header-bar">
       <div class="header-left"> 
-        <img src="image/bydlogo.svg" alt="BYD Logo">
+        <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
       <div class="header-title">INTERIOR</div>
       <div class="header-right">
         <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language Icon"></a>
+        <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+       <img src="image/globe.png" alt="Language Icon">
+       </a>
       </div>
     </div>
-
     <nav class="nav-bar">
       <a href="pleasure.html" class="nav-link active">Pleasure</a>
       <a href="grip.html" class="nav-link">Grip-Style</a>
@@ -256,15 +253,13 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
     <div class="back-wrapper">
-      <a href="interior.html" class="back-main-left">&#8592; Back</a>
+      <a href="interior.html" class="back-main-left" data-i18n="back">← Back</a>
     </div>
 
-    <h2 id="pleasure">The Pleasure of Driving</h2>
+    <h2 id="pleasure" data-i18n="title">The Pleasure of Driving</h2>
 
-    <!-- Slider Section -->
     <div class="slider">
       <img src="image/interiordouble.jpg" alt="Slider Image" id="slider-image">
       <div class="dots">
@@ -275,12 +270,11 @@
       </div>
     </div>
 
-    <!-- Content Block -->
     <div class="content-block">
       <img src="image/bydinterior2.jpg" alt="Pleasure">
       <div class="text-box">
-        <h3>The Pleasure of Driving</h3>
-        <p>
+        <h3 data-i18n="heading">The Pleasure of Driving</h3>
+        <p data-i18n="description">
           User-friendly functions and the playful interior lend a unique and distinctive style.
           Agile and fun, the ATTO 3 delivers an engaging driving experience.<br><br>
           The striking, uncluttered center console reflects a positive, dynamic attitude to life.
@@ -289,7 +283,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
   <div class="footer-container">
     <div class="footer-left">
@@ -313,7 +306,48 @@
   </div>
 </footer>
 
-  <!-- Slider Script -->
+  <script>
+    const translations = {
+      en: {
+        back: "← Back",
+        title: "The Pleasure of Driving",
+        heading: "The Pleasure of Driving",
+        description: `User-friendly functions and the playful interior lend a unique and distinctive style.
+                      Agile and fun, the ATTO 3 delivers an engaging driving experience.<br><br>
+                      The striking, uncluttered center console reflects a positive, dynamic attitude to life.`
+      },
+      ms: {
+        back: "← Kembali",
+        title: "Keseronokan Memandu",
+        heading: "Keseronokan Memandu",
+        description: `Fungsi mesra pengguna dan dalaman yang menyeronokkan memberi gaya unik dan tersendiri.
+                      ATTO 3 yang tangkas dan menyeronokkan memberikan pengalaman pemanduan yang mengujakan.<br><br>
+                      Konsol tengah yang kemas dan menyerlah mencerminkan sikap positif dan dinamik terhadap kehidupan.`
+      }
+    };
+
+    function setLanguage(lang) {
+  localStorage.setItem('selectedLang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerHTML = translations[lang][key];
+  });
+}
+
+function toggleLanguage() {
+  const current = localStorage.getItem('selectedLang') || 'en';
+  const newLang = current === 'en' ? 'ms' : 'en';
+  setLanguage(newLang);
+  document.getElementById("language-select").value = newLang;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+    });
+  </script>
+
   <script>
     const images = [
       "image/bydinterior2.jpg",  

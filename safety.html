@@ -237,12 +237,14 @@
   <header>
     <div class="header-bar">
       <div class="header-left"> 
-        <img src="image/bydlogo.svg" alt="BYD Logo">
+        <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
       <div class="header-title">INTERIOR</div>
       <div class="header-right">
         <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language Icon"></a>
+        <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+       <img src="image/globe.png" alt="Language Icon">
+       </a>
       </div>
     </div>
 
@@ -260,10 +262,10 @@
   <!-- Main Content -->
   <main>
     <div class="back-wrapper">
-      <a href="interior.html" class="back-main-left">&#8592; Back</a>
+      <a href="interior.html" class="back-main-left" data-i18n="back">&#8592; Back</a>
     </div>
 
-    <h2 id="pleasure">Safety</h2>
+     <h2 data-i18n="title">Safety</h2>
 
     <!-- Slider Section -->
     <div class="slider">
@@ -280,8 +282,8 @@
     <div class="content-block">
       <img src="image/interiorsafety.jpg" alt="Pleasure">
       <div class="text-box">
-        <h3>Safety</h3>
-        <p>
+        <h3 data-i18n="heading">Safety</h3>
+         <p data-i18n="description">
           ATTO 3 have please check it is 7 airbags. The all-round airbag SRS 
           protection system includes: front double airbags, front seat side 
           airbags, head side airbags, remote side airbags in driver side 
@@ -318,7 +320,7 @@
 
   <!-- Slider Script -->
   <script>
-    const images = [
+     const images = [
       "image/interiorsafety.jpg",
       "image/safety1.jpg", 
       "image/safety41.jpg", 
@@ -333,6 +335,42 @@
         dot.classList.toggle("active", i === current);
       });
     }
+
+    const translations = {
+      en: {
+        back: "← Back",
+        title: "Safety",
+        heading: "Safety",
+        description: `ATTO 3 is equipped with 7 airbags. The all-round SRS protection system includes: front double airbags, front seat side airbags, head side airbags, remote side airbags for the driver (ENCAP), and load limit pretensioner safety belts.`
+      },
+      ms: {
+        back: "← Kembali",
+        title: "Ciri Keselamatan",
+        heading: "Ciri Keselamatan",
+        description: `ATTO 3 dilengkapi dengan 7 beg udara. Sistem perlindungan SRS menyeluruh termasuk: beg udara hadapan berkembar, beg udara sisi tempat duduk hadapan, beg udara sisi kepala, beg udara sisi jauh untuk pemandu (ENCAP), dan tali pinggang keselamatan dengan pengehad beban dan pra-tegang.`
+      }
+    };
+
+    function setLanguage(lang) {
+  localStorage.setItem('selectedLang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerHTML = translations[lang][key];
+  });
+}
+
+function toggleLanguage() {
+  const current = localStorage.getItem('selectedLang') || 'en';
+  const newLang = current === 'en' ? 'ms' : 'en';
+  setLanguage(newLang);
+  document.getElementById("language-select").value = newLang;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+    });
   </script>
 </body>
 </html>

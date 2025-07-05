@@ -237,12 +237,14 @@
   <header>
     <div class="header-bar">
       <div class="header-left"> 
-        <img src="image/bydlogo.svg" alt="BYD Logo">
+        <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
       <div class="header-title">INTERIOR</div>
       <div class="header-right">
         <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language Icon"></a>
+        <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+       <img src="image/globe.png" alt="Language Icon">
+       </a>
       </div>
     </div>
 
@@ -260,10 +262,10 @@
   <!-- Main Content -->
   <main>
     <div class="back-wrapper">
-      <a href="interior.html" class="back-main-left">&#8592; Back</a>
+      <a href="interior.html" class="back-main-left" data-i18n="back">&#8592; Back</a>
     </div>
 
-    <h2 id="pleasure">Double-layer panoramic anti-pinch skylight</h2>
+    <h2 id="pleasure" data-i18n="title">Double-layer panoramic anti-pinch skylight</h2>
 
     <!-- Slider Section -->
     <div class="slider">
@@ -280,8 +282,8 @@
     <div class="content-block">
       <img src="image/interiordouble.jpg" alt="Pleasure">
       <div class="text-box">
-        <h3>The Pleasure of Driving</h3>
-        <p>
+        <h3 data-i18n="heading">The Pleasure of Driving</h3>
+        <p data-i18n="description">
           The sunblinds and glass provide double sound insulation 
           and heat insulation; intelligent voice control, anti-pinch, 
           bringing comfort and peace.
@@ -317,7 +319,7 @@
   <!-- Slider Script -->
   <script>
     const images = [
-      "image/image/interiorwireless.jpg.jpg",
+      "image/interiordouble.jpg",
       "image/double1.jpg",  
       "image/double2.jpg",
       "image/double3.jpg",
@@ -331,6 +333,44 @@
         dot.classList.toggle("active", i === current);
       });
     }
+
+    const translations = {
+      en: {
+        back: "← Back",
+        title: "Double-layer panoramic anti-pinch skylight",
+        heading: "The Pleasure of Driving",
+        description: `The sunblinds and glass provide double sound insulation 
+                    and heat insulation; intelligent voice control, anti-pinch, 
+                    bringing comfort and peace.`
+      },
+      ms: {
+        back: "← Kembali",
+        title: "Bumbung Langit Panoramik Dua Lapisan Anti-Picit",
+        heading: "Keseronokan Memandu",
+        description: `Langsir matahari dan kaca memberikan penebat bunyi dan haba berganda; kawalan suara pintar, anti-picit, membawa keselesaan dan ketenangan.`
+      }
+    };
+
+    function setLanguage(lang) {
+  localStorage.setItem('selectedLang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerHTML = translations[lang][key];
+  });
+}
+
+function toggleLanguage() {
+  const current = localStorage.getItem('selectedLang') || 'en';
+  const newLang = current === 'en' ? 'ms' : 'en';
+  setLanguage(newLang);
+  document.getElementById("language-select").value = newLang;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+    });
   </script>
 </body>
 </html>
