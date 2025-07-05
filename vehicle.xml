@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="vehicles.xsl"?>
+
+<vehicle>
+	<details>
+		<model>BYD Dolphin</model>
+		<battery>44.9 kWh</battery>
+		<range>340km</range>
+		<price>RM100,530</price>
+		<suitable>City Commuters</suitable>
+	</details>
+	
+	<details>
+		<model>BYD Atto 3</model>
+		<battery>60.48 kWh</battery>
+		<range>420 km</range>
+		<price>RM123,800</price>
+		<suitable>Small Families</suitable>
+	</details>
+		
+	<details>
+		<model>BYD Seal</model>
+		<battery>61 kWh</battery>
+		<range>large</range>
+		<price>RM163,800</price>
+		<suitable>Long Journey</suitable>
+	</details>
+	
+	<details>
+		<model>BYD Sealionn 7</model>
+		<battery>EV SUV 82.5 kWh</battery>
+		<range>Up to 567 km</range>
+		<price>RM183,800</price>
+		<suitable>Very Family Freinds</suitable>
+	</details>
+	
+	<details>
+		<model>BYD M6</model>
+		<battery>EV MPV similar to Atto</battery>
+		<range>-</range>
+		<price>RM109,800</price>
+		<suitable>Long Drives</suitable>
+	</details>
+</vehicle>
