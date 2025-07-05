@@ -234,32 +234,34 @@
 <body>
 
   <!-- Header -->
-  <header>
-    <div class="header-bar">
-      <div class="header-left"> 
-        <img src="image/bydlogo.svg" alt="BYD Logo">
-      </div>
-      <div class="header-title">INTERIOR</div>
-      <div class="header-right">
-        <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language Icon"></a>
-      </div>
+ <header>
+  <div class="header-bar">
+    <div class="header-left"> 
+      <img src="image/bydlogo.png" alt="BYD Logo">
     </div>
+    <div class="header-title">INTERIOR</div>
+    <div class="header-right">
+      <a href="faq.html">FAQ</a>
+      <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+       <img src="image/globe.png" alt="Language Icon">
+       </a>
+    </div>
+  </div>
 
-    <nav class="nav-bar">
-      <a href="pleasure.html" class="nav-link">Pleasure</a>
-      <a href="grip.html" class="nav-link active">Grip-Style</a>
-      <a href="wireless.html" class="nav-link">Wireless</a>
-      <a href="panoramic.html" class="nav-link">Panoramic</a>
-      <a href="power.html" class="nav-link">Power Station</a>
-      <a href="safety.html" class="nav-link">Safety</a>
-    </nav>
-  </header>
+  <nav class="nav-bar">
+    <a href="pleasure.html" class="nav-link">Pleasure</a>
+    <a href="grip.html" class="nav-link active">Grip-Style</a>
+    <a href="wireless.html" class="nav-link">Wireless</a>
+    <a href="panoramic.html" class="nav-link">Panoramic</a>
+    <a href="power.html" class="nav-link">Power Station</a>
+    <a href="safety.html" class="nav-link">Safety</a>
+  </nav>
+</header>
 
   <!-- Main Content -->
   <main>
     <div class="back-wrapper">
-      <a href="interior.html" class="back-main-left">&#8592; Back</a>
+     <a href="interior.html" class="back-main-left" data-i18n="back">&#8592; Back</a>
     </div>
 
     <h2 id="pleasure">Grip-Style Door Handles</h2>
@@ -279,16 +281,16 @@
     <div class="content-block">
       <img src="image/grip1.jpg" alt="Pleasure">
       <div class="text-box">
-        <h3>The Pleasure of Driving</h3>
-        <p>
-          A perfect combination of aesthetics, technology and ergonomics, 
+        <h2 id="pleasure" data-i18n="title">Grip-Style Door Handles</h2>
+          <p data-i18n="description">
+           A perfect combination of aesthetics, technology and ergonomics, 
           the shape is inspired by the grip force device, highly integrated 
           with speakers and ambient lights, pulling in a sense of technology, 
           and the unlocking action is in line with ergonomics, making it 
-          easy and convenient to open the door.Bring the atmosphere of 
-          using the car to the extreme, making every trip, a fantastic journey.
-        </p>
-      </div>
+          easy and convenient to open the door. Bring the atmosphere of 
+          using the car to the extreme, making every trip a fantastic journey.
+         </p>
+    </div>
     </div>
   </main>
 
@@ -333,6 +335,52 @@
         dot.classList.toggle("active", i === current);
       });
     }
+
+      const translations = {
+  en: {
+    back: "← Back",
+    title: "Grip-Style Door Handles",
+    heading: "The Pleasure of Driving",
+    description: `A perfect combination of aesthetics, technology and ergonomics, 
+      the shape is inspired by the grip force device, highly integrated 
+      with speakers and ambient lights, pulling in a sense of technology, 
+      and the unlocking action is in line with ergonomics, making it 
+      easy and convenient to open the door. Bring the atmosphere of 
+      using the car to the extreme, making every trip a fantastic journey.`
+  },
+  ms: {
+    back: "← Kembali",
+    title: "Pemegang Pintu Gaya Cengkaman",
+    heading: "Keseronokan Memandu",
+    description: `Gabungan sempurna estetika, teknologi dan ergonomik, 
+      bentuknya diilhamkan oleh peranti daya cengkaman, sangat terintegrasi 
+      dengan pembesar suara dan lampu ambien, memberikan sentuhan teknologi. 
+      Tindakan membuka pintu selaras dengan prinsip ergonomik, menjadikannya 
+      mudah dan selesa digunakan. Membawa suasana penggunaan kereta ke tahap maksimum, 
+      menjadikan setiap perjalanan satu pengalaman yang luar biasa.`
+  }
+};
+
+  function setLanguage(lang) {
+  localStorage.setItem('selectedLang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerHTML = translations[lang][key];
+  });
+}
+
+function toggleLanguage() {
+  const current = localStorage.getItem('selectedLang') || 'en';
+  const newLang = current === 'en' ? 'ms' : 'en';
+  setLanguage(newLang);
+  document.getElementById("language-select").value = newLang;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+  });
   </script>
 </body>
 </html>

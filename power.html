@@ -237,12 +237,14 @@
   <header>
     <div class="header-bar">
       <div class="header-left"> 
-        <img src="image/bydlogo.svg" alt="BYD Logo">
+        <img src="image/bydlogo.png" alt="BYD Logo">
       </div>
       <div class="header-title">INTERIOR</div>
       <div class="header-right">
         <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language Icon"></a>
+        <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+       <img src="image/globe.png" alt="Language Icon">
+       </a>
       </div>
     </div>
 
@@ -260,10 +262,10 @@
   <!-- Main Content -->
   <main>
     <div class="back-wrapper">
-      <a href="interior.html" class="back-main-left">&#8592; Back</a>
+      <a href="interior.html" class="back-main-left" data-i18n="back">&#8592; Back</a>
     </div>
 
-    <h2 id="pleasure">VTOL mobile power station</h2>
+     <h2 id="pleasure" data-i18n="title">VTOL mobile power station</h2>
 
     <!-- Slider Section -->
     <div class="slider">
@@ -280,13 +282,13 @@
     <div class="content-block">
       <img src="image/interiorVTOL.jpg" alt="Pleasure">
       <div class="text-box">
-        <h3>VTOL mobile power station</h3>
-        <p>
-          The VTOL mobile power station function allows the vehicle 
-          to be transformed into a super mobile power bank, which 
-          supports power up to 3.3kwh, which can satisfy most 
-          high-power electrical appliances, outdoor cooking, 
-          and enjoy a new comfortable self-driving experience.
+         <h3 data-i18n="heading">VTOL mobile power station</h3>
+        <p data-i18n="description">
+        The VTOL mobile power station function allows the vehicle 
+        to be transformed into a super mobile power bank, which 
+        supports power up to 3.3kwh, which can satisfy most 
+        high-power electrical appliances, outdoor cooking, 
+        and enjoy a new comfortable self-driving experience.
         </p>
       </div>
     </div>
@@ -320,8 +322,8 @@
   <script>
     const images = [
       "image/interiorVTOL.jpg",
-      "image/power11.jpg", 
-      "image/power2.jpg", 
+      "image/power11.jpg",
+      "image/power2.jpg",
       "image/power3.jpg",
       "image/power4.jpg",
     ];
@@ -333,6 +335,50 @@
         dot.classList.toggle("active", i === current);
       });
     }
+
+    const translations = {
+  en: {
+    back: "← Back",
+    title: "VTOL mobile power station",
+    heading: "VTOL mobile power station",
+    description: `The VTOL mobile power station function allows the vehicle 
+      to be transformed into a super mobile power bank, which 
+      supports power up to 3.3kwh, which can satisfy most 
+      high-power electrical appliances, outdoor cooking, 
+      and enjoy a new comfortable self-driving experience.`
+  },
+  ms: {
+    back: "← Kembali",
+    title: "Stesen kuasa mudah alih VTOL",
+    heading: "Stesen kuasa mudah alih VTOL",
+    description: `Fungsi stesen kuasa mudah alih VTOL membolehkan kenderaan 
+      menjadi bank kuasa mudah alih berkuasa tinggi, menyokong 
+      sehingga 3.3kwh, sesuai untuk perkakas elektrik berkuasa tinggi, 
+      memasak di luar dan pengalaman pemanduan sendiri yang selesa.`
+  }
+};
+
+function setLanguage(lang) {
+  localStorage.setItem('selectedLang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.innerHTML = translations[lang][key];
+  });
+}
+
+function toggleLanguage() {
+  const current = localStorage.getItem('selectedLang') || 'en';
+  const newLang = current === 'en' ? 'ms' : 'en';
+  setLanguage(newLang);
+  document.getElementById("language-select").value = newLang;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('selectedLang') || 'en';
+  document.getElementById('language-select').value = savedLang;
+  setLanguage(savedLang);
+});
+
   </script>
 </body>
 </html>
