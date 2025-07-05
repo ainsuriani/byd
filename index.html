@@ -22,11 +22,12 @@
       flex-direction: column;
       min-height: 100vh;
     }
+
     .byd-logo {
-    height: 20px;       /* You can reduce this to 25px or 20px if still too big */
-    width: auto;        /* Maintain the aspect ratio */
-    margin-left: 8px;  /* Optional spacing */
-    vertical-align: middle;
+      height: 20px;
+      width: auto;
+      margin-left: 8px;
+      vertical-align: middle;
     }
 
     header {
@@ -87,6 +88,7 @@
     }
 
     main {
+      background-color: #fff;
       flex: 1;
       padding: 2em 1em;
       text-align: center;
@@ -260,17 +262,16 @@
         <a href="interior.html" id="navInterior">Interior</a>
         <a href="shop.html" id="navShop">Shop</a>        
       </nav>
+    </header>
 
     <!-- Main Content -->
     <main>
-      <!-- Typing Intro -->
       <section class="hero-intro">
         <p><span id="typed-text"></span><span class="cursor">|</span></p>
         <p class="subtext">Discover the innovation, power, and sustainability of BYD vehicles.</p>
         <a href="vehicles.html" class="cta-button">Explore Our Cars</a>
       </section>
 
-      <!-- Video -->
       <section class="video-container">
         <h2>Unleash the Future</h2>
         <p class="video-caption">Experience our latest BYD innovations in motion.</p>
@@ -280,7 +281,6 @@
         </video>
       </section>
 
-      <!-- Features -->
       <section class="features">
         <h2>Why Choose BYD?</h2>
         <div class="feature-grid">
@@ -320,7 +320,7 @@
     </footer>
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript for Typing + Language Toggle -->
   <script>
     const phrases = [
       "Welcome to BYD - Build Your Dreams.",
@@ -346,57 +346,41 @@
     }
     typeLoop();
 
-  let currentLanguage = 'en'; // default language
+    let currentLanguage = 'en';
 
-  function toggleLanguage() {
-    currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
-    switchLanguage(currentLanguage);
-  }
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
+      switchLanguage(currentLanguage);
+    }
 
-  function switchLanguage(lang) {
-    const text = {
-      en: {
-        "main-heading": "BYD Home",
-        "faq-heading": "Frequently Asked Questions",
-        "faq1-q": "Q: What does BYD stand for?",
-        "faq1-a": "A: Build Your Dreams",
-        "faq2-q": "Q: Where can I test drive BYD cars?",
-        "faq2-a": "A: Visit any official BYD showroom across Malaysia.",
-        "faq3-q": "Q: Are BYD vehicles fully electric?",
-        "faq3-a": "A: Yes, BYD specializes in electric and hybrid vehicles.",
-        "footer-text": "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.",
-        "navHome": "Home",
-        "navAbout": "About",
-        "navVehicle": "Vehicle",
-        "navInterior": "Interior",
-        "navShop": "Shop"
-      },
-      ms: {
-        "main-heading": "Laman Utama BYD",
-        "faq-heading": "Soalan Lazim",
-        "faq1-q": "S: Apa maksud BYD?",
-        "faq1-a": "J: Build Your Dreams (Bina Impian Anda)",
-        "faq2-q": "S: Di mana boleh pandu uji kereta BYD?",
-        "faq2-a": "J: Lawati mana-mana bilik pameran rasmi BYD di Malaysia.",
-        "faq3-q": "S: Adakah semua kenderaan BYD elektrik sepenuhnya?",
-        "faq3-a": "J: Ya, BYD pakar dalam kenderaan elektrik dan hibrid.",
-        "footer-text": "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara.",
-        "navHome": "Laman Utama",
-        "navAbout": "Tentang",
-        "navVehicle": "Kenderaan",
-        "navInterior": "Dalaman",
-        "navShop": "Kedai"
-      }
-    };
-
-    for (const id in text[lang]) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.textContent = text[lang][id];
+    function switchLanguage(lang) {
+      const text = {
+        en: {
+          "main-heading": "BYD Home",
+          "footer-text": "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.",
+          "navHome": "Home",
+          "navAbout": "About",
+          "navVehicle": "Vehicle",
+          "navInterior": "Interior",
+          "navShop": "Shop"
+        },
+        ms: {
+          "main-heading": "Laman Utama BYD",
+          "footer-text": "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara.",
+          "navHome": "Laman Utama",
+          "navAbout": "Tentang",
+          "navVehicle": "Kenderaan",
+          "navInterior": "Dalaman",
+          "navShop": "Kedai"
+        }
+      };
+      for (const id in text[lang]) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.textContent = text[lang][id];
+        }
       }
     }
-  }
-</script>
-
+  </script>
 </body>
 </html>
