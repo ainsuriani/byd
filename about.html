@@ -235,6 +235,12 @@ p {
   </footer>
 
   <script>
+    let currentLanguage = 'en'; // Default
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
+      switchLanguage(currentLanguage);
+    }
     function switchLanguage(lang) {
       const texts = {
         en: {
