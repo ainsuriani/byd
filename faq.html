@@ -12,63 +12,53 @@
       background: #fff;
       color: #111;
     }
-
     header, footer {
       background: #f7a5c2;
       padding: 1em;
     }
-
     .header-container, .footer-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-
     .header-title {
       flex: 1;
       text-align: center;
       font-size: 1.8em;
       font-weight: bold;
     }
-
     .back-link {
       font-weight: bold;
       color: #000;
       text-decoration: none;
       margin-left: 1em;
     }
-
     .lang-button {
       cursor: pointer;
       background: none;
       border: none;
       margin-right: 1em;
     }
-
     .lang-button img {
       height: 20px;
       vertical-align: middle;
     }
-
     main {
       padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
     }
-
     h2 {
       color: #f06292;
       font-size: 1.8em;
       margin-bottom: 1em;
       text-align: center;
     }
-
     .search-box {
       text-align: center;
       margin-bottom: 2em;
     }
-
     .search-box input {
       width: 80%;
       padding: 10px;
@@ -76,23 +66,19 @@
       border: 1px solid #ccc;
       font-size: 1em;
     }
-
     ul {
       list-style: none;
       padding: 0;
     }
-
     li {
       margin-bottom: 1.5em;
       font-size: 1.1em;
       line-height: 1.6;
     }
-
     li strong {
       display: block;
       color: #f06292;
     }
-
     .no-result {
       text-align: center;
       font-size: 1.1em;
@@ -100,7 +86,6 @@
       margin-top: 1em;
       display: none;
     }
-
     .footer-bottom {
       text-align: center;
       margin-top: 0.5em;
@@ -128,42 +113,45 @@
       <input type="text" id="faqSearch" placeholder="Search your question..." oninput="searchFAQ()">
     </div>
 
+    <!-- ENGLISH FAQ -->
     <div id="faq-en">
+      <ul id="faqList-en">
         <li><strong>What vehicles does BYD make?</strong> EVs, hybrids, and buses.</li>
         <li><strong>Where is BYD available?</strong> Over 50 countries worldwide.</li>
         <li><strong>What is Blade Battery?</strong> Safe and long-lasting EV battery.</li>
-        <li><strong>How long does it take to charge a BYD EV?</strong> Fast charging takes around 30 minutes to 1 hour depending on the model.</li>
+        <li><strong>How long does it take to charge a BYD EV?</strong> Around 30 minutes to 1 hour depending on the model.</li>
         <li><strong>Is BYD available in Malaysia?</strong> Yes, through official BYD Malaysia dealerships.</li>
-        <li><strong>What is the warranty for BYD vehicles?</strong> Typically 6–8 years for batteries, and 3–5 years for the car.</li>
-        <li><strong>Can I charge a BYD at home?</strong> Yes, BYD EVs support both home and public charging.</li>
+        <li><strong>What is the warranty for BYD vehicles?</strong> 6–8 years for batteries, and 3–5 years for the car.</li>
+        <li><strong>Can I charge a BYD at home?</strong> Yes, BYD EVs support home and public charging.</li>
         <li><strong>Are spare parts available locally?</strong> Yes, BYD provides after-sales service and genuine parts in Malaysia.</li>
-        <li><strong>Is financing available?</strong> Yes, financing and installment options are available at most BYD dealers.</li>
+        <li><strong>Is financing available?</strong> Yes, financing and installment options are available.</li>
         <li><strong>What charging ports does BYD use?</strong> Most models support CCS2 and Type 2 connectors.</li>
-        <li><strong>Are BYD EVs safe in the rain?</strong> Yes, they are fully waterproof and certified for safety.</li>
-        <li><strong>How long does a BYD battery last?</strong> Typically over 8 years or 500,000 km, depending on use.</li>
+        <li><strong>Are BYD EVs safe in the rain?</strong> Yes, they are waterproof and safe for all weather.</li>
+        <li><strong>How long does a BYD battery last?</strong> Typically over 8 years or 500,000 km.</li>
         <li><strong>Does BYD offer test drives?</strong> Yes, most dealers offer test drives by appointment.</li>
-        <li><strong>How do I book a service appointment?</strong> Visit the BYD Malaysia website or contact your nearest dealer.</li>
+        <li><strong>How do I book a service appointment?</strong> Visit BYD Malaysia’s website or contact your dealer.</li>
       </ul>
       <div id="noResult-en" class="no-result">No results found.</div>
     </div>
 
+    <!-- BAHASA MELAYU FAQ -->
     <div id="faq-ms" style="display:none;">
-        <ul id="faqList-ms">
-            <li><strong>Apakah jenis kenderaan BYD?</strong> EV, hibrid dan bas.</li>
-            <li><strong>Di mana BYD boleh didapati?</strong> Lebih 50 negara di seluruh dunia.</li>
-            <li><strong>Apa itu Blade Battery?</strong> Bateri EV yang selamat dan tahan lama.</li>
-            <li><strong>Berapa lama masa untuk mengecas EV BYD?</strong> Pengecasan pantas mengambil masa antara 30 minit hingga 1 jam bergantung kepada model.</li>
-            <li><strong>Adakah BYD tersedia di Malaysia?</strong> Ya, melalui pengedar sah BYD Malaysia.</li>
-            <li><strong>Apakah jaminan untuk kenderaan BYD?</strong> Biasanya 6–8 tahun untuk bateri, dan 3–5 tahun untuk kenderaan.</li>
-            <li><strong>Bolehkah saya mengecas BYD di rumah?</strong> Ya, kenderaan BYD boleh dicas di rumah atau stesen awam.</li>
-            <li><strong>Adakah alat ganti tersedia di Malaysia?</strong> Ya, BYD menyediakan perkhidmatan selepas jualan dan alat ganti asli.</li>
-            <li><strong>Adakah pembiayaan disediakan?</strong> Ya, pilihan ansuran dan pinjaman disediakan di pengedar BYD.</li>
-            <li><strong>Apakah jenis port pengecasan yang digunakan oleh BYD?</strong> Kebanyakan model menyokong penyambung CCS2 dan Type 2.</li>
-            <li><strong>Adakah EV BYD selamat digunakan semasa hujan?</strong> Ya, EV BYD kalis air dan diluluskan keselamatannya.</li>
-            <li><strong>Berapa lama jangka hayat bateri BYD?</strong> Biasanya lebih 8 tahun atau 500,000 km bergantung pada penggunaan.</li>
-            <li><strong>Adakah BYD menawarkan pandu uji?</strong> Ya, kebanyakan pengedar menawarkan pandu uji dengan janji temu.</li>
-            <li><strong>Bagaimana cara untuk membuat janji temu servis?</strong> Layari laman web BYD Malaysia atau hubungi pengedar terdekat anda.</li>
-          </ul>          
+      <ul id="faqList-ms">
+        <li><strong>Apakah jenis kenderaan BYD?</strong> EV, hibrid dan bas.</li>
+        <li><strong>Di mana BYD boleh didapati?</strong> Lebih 50 negara di seluruh dunia.</li>
+        <li><strong>Apa itu Blade Battery?</strong> Bateri EV yang selamat dan tahan lama.</li>
+        <li><strong>Berapa lama masa untuk mengecas EV BYD?</strong> Sekitar 30 minit hingga 1 jam bergantung kepada model.</li>
+        <li><strong>Adakah BYD tersedia di Malaysia?</strong> Ya, melalui pengedar sah BYD Malaysia.</li>
+        <li><strong>Apakah jaminan untuk kenderaan BYD?</strong> Biasanya 6–8 tahun untuk bateri, dan 3–5 tahun untuk kenderaan.</li>
+        <li><strong>Bolehkah saya mengecas BYD di rumah?</strong> Ya, BYD menyokong pengecasan rumah dan awam.</li>
+        <li><strong>Adakah alat ganti tersedia di Malaysia?</strong> Ya, BYD menyediakan alat ganti asli dan servis selepas jualan.</li>
+        <li><strong>Adakah pembiayaan disediakan?</strong> Ya, terdapat pilihan ansuran dan pembiayaan.</li>
+        <li><strong>Apakah jenis port pengecasan yang digunakan?</strong> Kebanyakan model menggunakan CCS2 dan Type 2.</li>
+        <li><strong>Adakah EV BYD selamat digunakan dalam hujan?</strong> Ya, EV BYD kalis air dan selamat digunakan.</li>
+        <li><strong>Berapa lama jangka hayat bateri BYD?</strong> Biasanya lebih 8 tahun atau 500,000 km.</li>
+        <li><strong>Adakah BYD menawarkan pandu uji?</strong> Ya, kebanyakan pengedar menyediakan pandu uji dengan janji temu.</li>
+        <li><strong>Bagaimana untuk tempah servis?</strong> Layari laman web BYD Malaysia atau hubungi pengedar berdekatan.</li>
+      </ul>
       <div id="noResult-ms" class="no-result">Tiada hasil ditemui.</div>
     </div>
   </main>
@@ -192,19 +180,18 @@
     function searchFAQ() {
       const input = document.getElementById('faqSearch').value.toLowerCase();
       const listId = faqLang === 'en' ? 'faqList-en' : 'faqList-ms';
+      const noResultId = faqLang === 'en' ? 'noResult-en' : 'noResult-ms';
       const list = document.getElementById(listId);
       const items = list.getElementsByTagName('li');
       let found = false;
-
       for (let i = 0; i < items.length; i++) {
         const text = items[i].innerText.toLowerCase();
         const match = text.includes(input);
         items[i].style.display = match ? '' : 'none';
         if (match) found = true;
       }
-
-      document.getElementById('noResult-en').style.display = faqLang === 'en' && !found ? 'block' : 'none';
-      document.getElementById('noResult-ms').style.display = faqLang === 'ms' && !found ? 'block' : 'none';
+      document.getElementById('noResult-en').style.display = (faqLang === 'en' && !found) ? 'block' : 'none';
+      document.getElementById('noResult-ms').style.display = (faqLang === 'ms' && !found) ? 'block' : 'none';
     }
   </script>
 </body>
