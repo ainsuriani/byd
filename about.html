@@ -1,198 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BYD - About</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-  body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff;
-  color: #111;
-}
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #111;
+    }
 
-header, footer {
-  background: #f7a5c2;
-  padding: 1em;
-}
+    header, footer {
+      background: #f7a5c2;
+      padding: 1em;
+    }
 
-.header-container,
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+    .header-container,
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-.header-title {
-  text-align: center;
-  font-size: 1.8em;
-  font-weight: bold;
-  flex: 1;
-}
+    .header-title {
+      text-align: center;
+      font-size: 1.8em;
+      font-weight: bold;
+      flex: 1;
+    }
 
-.header-right,
-.language-dropdown,
-.faq-dropdown {
-  position: relative;
-  display: inline-block;
-}
+    .header-right a,
+    .footer-left a,
+    .footer-right a {
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+      margin-left: 1em;
+    }
 
-.header-right a,
-.footer-left a,
-.footer-right a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #000;
-  margin-left: 1em;
-}
+    nav {
+      text-align: center;
+      margin-top: 0.5em;
+    }
 
-.language-dropdown .dropdown-content,
-.faq-dropdown .faq-content {
-  display: none;
-  position: absolute;
-  background: #fff;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  z-index: 1000;
-}
+    nav a {
+      margin: 0 1em;
+      font-weight: bold;
+      text-decoration: none;
+      color: #000;
+    }
 
-.dropdown-content a {
-  display: block;
-  padding: 10px;
-  color: #000;
-}
+    nav a.active {
+      background: #f06292;
+      color: #fff;
+      padding: 0.3em 0.8em;
+      border-radius: 5px;
+    }
 
-.dropdown-content a:hover {
-  background: #f2f2f2;
-}
+    main {
+      padding: 2em 1em;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-.faq-content {
-  width: 320px;
-  top: 100%;
-  right: 0;
-  padding: 1em;
-  font-size: 0.9em;
-}
+    h2 {
+      color: #f06292;
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
 
-.faq-content input {
-  width: 100%;
-  padding: 0.5em;
-  margin-bottom: 0.8em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    p {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 1.5em;
+    }
 
-nav {
-  text-align: center;
-  margin-top: 0.5em;
-}
+    .video-container {
+      text-align: center;
+      margin: 2em 0;
+    }
 
-nav a {
-  margin: 0 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
-}
+    .video-container video {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
 
-nav a.active {
-  background: #f06292;
-  color: #fff;
-  padding: 0.3em 0.8em;
-  border-radius: 5px;
-}
+    .footer-right a {
+      font-size: 1.2em;
+    }
 
-main {
-  padding: 2em 1em;
-  max-width: 1000px;
-  margin: auto;
-}
-
-h2 {
-  color: #f06292;
-  font-size: 1.8em;
-  margin-bottom: 1em;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7;
-  margin-bottom: 1.5em;
-}
-
-.video-container {
-  text-align: center;
-  margin: 2em 0;
-}
-
-.video-container video {
-  width: 100%;
-  max-width: 900px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.footer-right a {
-  font-size: 1.2em;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 0.5em;
-}
+    .footer-bottom {
+      text-align: center;
+      margin-top: 0.5em;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-container">
-      <div class="header-left"><img src="image/bydlogo.svg" alt="BYD Logo" height="40"></div>
+      <div class="header-left">
+        <img src="image/bydlogo.svg" alt="BYD Logo" height="40">
+      </div>
       <div class="header-title" id="title">About BYD</div>
       <div class="header-right">
-        <!-- FAQ Dropdown -->
-        <div class="faq-dropdown">
-          <a href="#">FAQ</a>
-          <div class="faq-content">
-            <input type="text" id="faq-search" placeholder="Search your question...">
-            <div>
-              <strong>Language:</strong>
-              <button onclick="toggleFAQ('en')">EN</button>
-              <button onclick="toggleFAQ('ms')">BM</button>
-            </div>
-            <div id="faq-en">
-              <ul>
-                <li><strong>Q:</strong> What vehicles does BYD make?<br><strong>A:</strong> EVs, hybrids, and buses.</li>
-                <li><strong>Q:</strong> Where is BYD available?<br><strong>A:</strong> Over 50 countries worldwide.</li>
-                <li><strong>Q:</strong> What is Blade Battery?<br><strong>A:</strong> Safe and long-lasting EV battery.</li>
-                <li><strong>Q:</strong> How long does it take to charge a BYD EV?<br><strong>A:</strong> Fast charging takes around 30 minutes to 1 hour depending on the model.</li>
-                <li><strong>Q:</strong> Is BYD available in Malaysia?<br><strong>A:</strong> Yes, through official BYD Malaysia dealerships.</li>
-                <li><strong>Q:</strong> What is the warranty for BYD vehicles?<br><strong>A:</strong> Typically 6–8 years for batteries, and 3–5 years for the car.</li>
-                <li><strong>Q:</strong> Can I charge a BYD at home?<br><strong>A:</strong> Yes, BYD EVs support both home and public charging.</li>
-                <li><strong>Q:</strong> Are spare parts available locally?<br><strong>A:</strong> Yes, BYD provides after-sales service and genuine parts in Malaysia.</li>
-                <li><strong>Q:</strong> Is financing available?<br><strong>A:</strong> Yes, financing and installment options are available at most BYD dealers.</li>
-              </ul>
-            </div>
-            <div id="faq-ms" style="display:none;">
-              <ul>
-                <li><strong>S:</strong> Apakah jenis kenderaan BYD?<br><strong>J:</strong> EV, hibrid dan bas.</li>
-                <li><strong>S:</strong> Di mana BYD boleh didapati?<br><strong>J:</strong> Lebih 50 negara di seluruh dunia.</li>
-                <li><strong>S:</strong> Apa itu Blade Battery?<br><strong>J:</strong> Bateri EV yang selamat dan tahan lama.</li>
-                <li><strong>S:</strong> Berapa lama masa untuk mengecas EV BYD?<br><strong>J:</strong> Pengecasan pantas mengambil masa antara 30 minit hingga 1 jam bergantung kepada model.</li>
-                <li><strong>S:</strong> Adakah BYD tersedia di Malaysia?<br><strong>J:</strong> Ya, melalui pengedar sah BYD Malaysia.</li>
-                <li><strong>S:</strong> Apakah jaminan untuk kenderaan BYD?<br><strong>J:</strong> Biasanya 6–8 tahun untuk bateri, dan 3–5 tahun untuk kenderaan.</li>
-                <li><strong>S:</strong> Bolehkah saya mengecas BYD di rumah?<br><strong>J:</strong> Ya, kenderaan BYD boleh dicas di rumah atau stesen awam.</li>
-                <li><strong>S:</strong> Adakah alat ganti tersedia di Malaysia?<br><strong>J:</strong> Ya, BYD menyediakan perkhidmatan selepas jualan dan alat ganti asli.</li>
-                <li><strong>S:</strong> Adakah pembiayaan disediakan?<br><strong>J:</strong> Ya, pilihan ansuran dan pinjaman disediakan di pengedar BYD.</li>
-              </ul>              
-            </div>
-          </div>
-        </div>
-        <a href="#" onclick="switchLanguage('ms')">
+        <a href="faq.html">FAQ</a>
+        <a href="#" onclick="toggleLanguage()">
           <img src="image/globe.png" alt="Language" style="height: 20px;">
         </a>
-          </div>
-        </div>
       </div>
     </div>
     <nav>
@@ -241,6 +161,7 @@ p {
       currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
       switchLanguage(currentLanguage);
     }
+
     function switchLanguage(lang) {
       const texts = {
         en: {
@@ -276,28 +197,11 @@ p {
           impactDesc: "Beroperasi di lebih 50 negara, BYD membentuk mobiliti tenaga bersih di seluruh dunia."
         }
       };
+
       for (let id in texts[lang]) {
         document.getElementById(id).innerText = texts[lang][id];
       }
     }
-
-    function toggleFAQ(lang) {
-      document.getElementById("faq-en").style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById("faq-ms").style.display = lang === 'ms' ? 'block' : 'none';
-    }
-
-    document.querySelector('.faq-dropdown').addEventListener('mouseenter', function () {
-      this.querySelector('.faq-content').style.display = 'block';
-    });
-    document.querySelector('.faq-dropdown').addEventListener('mouseleave', function () {
-      this.querySelector('.faq-content').style.display = 'none';
-    });
-    document.querySelector('.language-dropdown').addEventListener('mouseenter', function () {
-      this.querySelector('.dropdown-content').style.display = 'block';
-    });
-    document.querySelector('.language-dropdown').addEventListener('mouseleave', function () {
-      this.querySelector('.dropdown-content').style.display = 'none';
-    });
   </script>
 </body>
 </html>
