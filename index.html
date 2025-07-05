@@ -237,15 +237,26 @@
       text-align: center;
       margin-top: 0.5em;
     }
+    .features {
+      background-color: #fff;
+      padding: 3em 1em;
+      text-align: center;
+    }
 
-    .content-box {
-    background-color: white;
-    border-radius: 12px;
-    padding: 2em;
-    max-width: 1100px;
-    margin: 0 auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  }
+    .features-box {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+      padding: 2em;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .features h2 {
+      font-size: 1.8em;
+      color: #d63384;
+      margin-bottom: 1em;
+    }
 
   </style>
 </head>
@@ -276,23 +287,23 @@
 
     <!-- Main Content -->
     <main>
-      <div class="content-box">
-        <section class="hero-intro">
-          <p><span id="typed-text"></span><span class="cursor">|</span></p>
-          <p class="subtext">Discover the innovation, power, and sustainability of BYD vehicles.</p>
-          <a href="vehicles.html" class="cta-button">Explore Our Cars</a>
-        </section>
-    
-        <section class="video-container">
-          <h2>Unleash the Future</h2>
-          <p class="video-caption">Experience our latest BYD innovations in motion.</p>
-          <video autoplay muted loop playsinline>
-            <source src="video.mp4/Unleash the Future with BYD Seal.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </section>
-    
-        <section class="features">
+      <section class="hero-intro">
+        <p><span id="typed-text"></span><span class="cursor">|</span></p>
+        <p class="subtext">Discover the innovation, power, and sustainability of BYD vehicles.</p>
+        <a href="vehicles.html" class="cta-button">Explore Our Cars</a>
+      </section>
+
+      <section class="video-container">
+        <h2>Unleash the Future</h2>
+        <p class="video-caption">Experience our latest BYD innovations in motion.</p>
+        <video autoplay muted loop playsinline>
+          <source src="video.mp4/Unleash the Future with BYD Seal.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section class="features">
+        <div class="features-box">
           <h2>Why Choose BYD?</h2>
           <div class="feature-grid">
             <div class="feature-item">
@@ -311,11 +322,9 @@
               <p>Trusted in over 50 countries with a focus on sustainable progress.</p>
             </div>
           </div>
-        </section>
-      </div>
-    </main>
-    
-
+        </div>
+      </section>
+      
     <!-- Footer -->
     <footer>
       <div class="footer-container">
