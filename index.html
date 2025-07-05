@@ -248,15 +248,17 @@
         <div class="header-title" id="main-heading">BYD Home</div>
         <div class="header-right">
           <a href="faq.html">FAQ</a>
-          <a href="#"><img src="image/globe.png" alt="Language" id="lang-toggle"></a>
+          <a href="#" onclick="toggleLanguage()">
+            <img src="image/globe.png" alt="Language" id="lang-toggle">
+          </a>
         </div>
       </div>
       <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="vehicles.html">Vehicle</a>
-        <a href="interior.html">Interior</a>
-        <a href="shop.html">Shop</a>
+        <a href="index.html" class="active" id="navHome">Home</a>
+        <a href="about.html" id="navAbout">About</a>
+        <a href="vehicles.html" id="navVehicle">Vehicle</a>
+        <a href="interior.html" id="navInterior">Interior</a>
+        <a href="shop.html" id="navShop">Shop</a>        
       </nav>
       <div class="faq-dropdown" id="faq-box" style="display: none;">
         <h3 id="faq-heading">Frequently Asked Questions</h3>
@@ -357,5 +359,59 @@
       faqBox.style.display = faqBox.style.display === "block" ? "none" : "block";
     });
   </script>
+
+<script>
+  let currentLanguage = 'en'; // default language
+
+  function toggleLanguage() {
+    currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
+    switchLanguage(currentLanguage);
+  }
+
+  function switchLanguage(lang) {
+    const text = {
+      en: {
+        "main-heading": "BYD Home",
+        "faq-heading": "Frequently Asked Questions",
+        "faq1-q": "Q: What does BYD stand for?",
+        "faq1-a": "A: Build Your Dreams",
+        "faq2-q": "Q: Where can I test drive BYD cars?",
+        "faq2-a": "A: Visit any official BYD showroom across Malaysia.",
+        "faq3-q": "Q: Are BYD vehicles fully electric?",
+        "faq3-a": "A: Yes, BYD specializes in electric and hybrid vehicles.",
+        "footer-text": "© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.",
+        "navHome": "Home",
+        "navAbout": "About",
+        "navVehicle": "Vehicle",
+        "navInterior": "Interior",
+        "navShop": "Shop"
+      },
+      ms: {
+        "main-heading": "Laman Utama BYD",
+        "faq-heading": "Soalan Lazim",
+        "faq1-q": "S: Apa maksud BYD?",
+        "faq1-a": "J: Build Your Dreams (Bina Impian Anda)",
+        "faq2-q": "S: Di mana boleh pandu uji kereta BYD?",
+        "faq2-a": "J: Lawati mana-mana bilik pameran rasmi BYD di Malaysia.",
+        "faq3-q": "S: Adakah semua kenderaan BYD elektrik sepenuhnya?",
+        "faq3-a": "J: Ya, BYD pakar dalam kenderaan elektrik dan hibrid.",
+        "footer-text": "© 2025 BYD Malaysia Sdn. Bhd. Hak cipta terpelihara.",
+        "navHome": "Laman Utama",
+        "navAbout": "Tentang",
+        "navVehicle": "Kenderaan",
+        "navInterior": "Dalaman",
+        "navShop": "Kedai"
+      }
+    };
+
+    for (const id in text[lang]) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.textContent = text[lang][id];
+      }
+    }
+  }
+</script>
+
 </body>
 </html>
