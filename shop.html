@@ -202,72 +202,6 @@
           <img src="image/globe.png" alt="Language Icon" style="height: 20px;"></a>
         </div>
 
-        <script>
-    let currentLanguage = 'en'; // Default
-
-    function toggleLanguage() {
-      currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
-      switchLanguage(currentLanguage);
-    }
-    function switchLanguage(lang) {
-      const texts = {
-        en: {
-          title: "About BYD",
-          navHome: "Home",
-          navAbout: "About",
-          navVehicle: "Vehicle",
-          navInterior: "Interior",
-          navShop: "Shop",
-          whoTitle: "Who We Are",
-          whoDesc: "BYD (Build Your Dreams) is a global high-tech company leveraging innovation to improve lives. We focus on electronics, automotive, new energy, and rail transit.",
-          missionTitle: "Our Mission",
-          missionDesc: "We aim to lead in clean energy and transport, reduce fossil fuel dependence, and build a sustainable future.",
-          innovationTitle: "Innovation & Sustainability",
-          innovationDesc: "As a top manufacturer of EVs and batteries, BYD pioneers with tech like the Blade Battery and e-Platform 3.0 to drive eco-conscious innovation.",
-          impactTitle: "Global Impact",
-          impactDesc: "Operating in over 50 countries, BYD is shaping clean energy mobility around the world."
-        },
-        ms: {
-          title: "Tentang BYD",
-          navHome: "Laman Utama",
-          navAbout: "Tentang",
-          navVehicle: "Kenderaan",
-          navInterior: "Dalaman",
-          navShop: "Kedai",
-          whoTitle: "Siapa Kami",
-          whoDesc: "BYD (Build Your Dreams) ialah syarikat teknologi tinggi global yang memanfaatkan inovasi untuk memperbaiki kehidupan.",
-          missionTitle: "Misi Kami",
-          missionDesc: "Kami ingin menerajui tenaga bersih dan pengangkutan serta membina masa depan yang lestari.",
-          innovationTitle: "Inovasi & Kelestarian",
-          innovationDesc: "Sebagai peneraju EV dan bateri, BYD menggunakan teknologi seperti Blade Battery dan e-Platform 3.0.",
-          impactTitle: "Kesan Global",
-          impactDesc: "Beroperasi di lebih 50 negara, BYD membentuk mobiliti tenaga bersih di seluruh dunia."
-        }
-      };
-      for (let id in texts[lang]) {
-        document.getElementById(id).innerText = texts[lang][id];
-      }
-    }
-
-    function toggleFAQ(lang) {
-      document.getElementById("faq-en").style.display = lang === 'en' ? 'block' : 'none';
-      document.getElementById("faq-ms").style.display = lang === 'ms' ? 'block' : 'none';
-    }
-
-    document.querySelector('.faq-dropdown').addEventListener('mouseenter', function () {
-      this.querySelector('.faq-content').style.display = 'block';
-    });
-    document.querySelector('.faq-dropdown').addEventListener('mouseleave', function () {
-      this.querySelector('.faq-content').style.display = 'none';
-    });
-    document.querySelector('.language-dropdown').addEventListener('mouseenter', function () {
-      this.querySelector('.dropdown-content').style.display = 'block';
-    });
-    document.querySelector('.language-dropdown').addEventListener('mouseleave', function () {
-      this.querySelector('.dropdown-content').style.display = 'none';
-    });
-  </script>
-
         <div id="logout-container">
           <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">Logout</button>
         </div>
@@ -359,6 +293,87 @@
       window.location.href = 'signin.html';
     }
   </script>
+
+  <!-- Language Switch Script -->
+  <script>
+  let currentLang = 'en';
+
+  const translations = {
+    en: {
+      title: "BYD Interior",
+      rhythmic: "Rhythmic Interior",
+      pleasure: "The Pleasure of Driving",
+      grip: "Grip-Style Door Handles",
+      wireless: "Mobile phone wireless charging",
+      panoramic: "Double-layer panoramic anti-pinch skylight",
+      power: "VTOL mobile power station",
+      safety: "Safety",
+      faq: "FAQ",
+      home: "Home",
+      about: "About",
+      vehicle: "Vehicle",
+      interior: "Interior",
+      shop: "Shop",
+      cookies: "Cookies",
+      privacy: "Privacy Policy",
+    },
+    bm: {
+      title: "Rekaan Dalaman BYD",
+      rhythmic: "Rekaan Dalaman Berirama",
+      pleasure: "Keseronokan Memandu",
+      grip: "Pemegang Pintu Gaya Cengkaman",
+      wireless: "Pengecas Tanpa Wayar Telefon Bimbit",
+      panoramic: "Bumbung Panoramik Dua Lapisan Anti-Cubit",
+      power: "Stesen Kuasa Mudah Alih VTOL",
+      safety: "Ciri Keselamatan",
+      faq: "Soalan Lazim",
+      home: "Laman Utama",
+      about: "Tentang Kami",
+      vehicle: "Kenderaan",
+      interior: "Dalaman",
+      shop: "Kedai",
+      cookies: "Kuki",
+      privacy: "Dasar Privasi",
+    }
+  };
+
+  document.getElementById('lang-toggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    currentLang = currentLang === 'en' ? 'bm' : 'en';
+    updateLanguage();
+  });
+
+  function updateLanguage() {
+    const t = translations[currentLang];
+
+    document.title = t.title;
+    document.querySelector('.header-title').textContent = t.title;
+    document.querySelector('h2').textContent = t.rhythmic;
+
+    const links = {
+      faq: t.faq,
+      home: t.home,
+      about: t.about,
+      vehicle: t.vehicle,
+      interior: t.interior,
+      shop: t.shop,
+    };
+
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      const key = link.getAttribute('href').replace('.html', '');
+      if (links[key]) link.textContent = links[key];
+    });
+
+    document.querySelectorAll('h3 a').forEach((a, i) => {
+      const keys = ['pleasure', 'grip', 'wireless', 'panoramic', 'power', 'safety'];
+      if (t[keys[i]]) a.textContent = t[keys[i]];
+    });
+
+    document.querySelector('.footer-left a:nth-child(1)').textContent = t.cookies;
+    document.querySelector('.footer-left a:nth-child(3)').textContent = t.privacy;
+  }
+</script>
 
 </body>
 </html>
