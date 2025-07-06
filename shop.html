@@ -44,30 +44,41 @@
       align-items: flex-end;
     }
 
-    .header-right-top {
+    .header-tools {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .header-right a {
+    #welcome-message {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .header-tools a {
       color: #000;
       font-weight: bold;
       text-decoration: none;
     }
 
-    .header-right img {
+    .header-tools img {
       height: 20px;
-      vertical-align: middle;
+      cursor: pointer;
     }
 
-    #welcome-message {
+    #logout-container button {
+      background-color: #f06292;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
       font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    #logout-container {
-      display: none;
-      margin-top: 5px;
+    #logout-container button:hover {
+      background-color: #e05183;
     }
 
     nav {
@@ -195,16 +206,15 @@
     <div class="header-title">BYD Shop</div>
 
     <div class="header-right">
-      <div class="header-right-top">
+      <div class="header-tools">
         <span id="welcome-message"></span>
-        <a href="faq.html" class="nav-link active">FAQ</a>
+        <a href="faq.html">FAQ</a>
         <a href="#" onclick="toggleLanguage()" id="lang-toggle">
-          <img src="image/globe.png" alt="Language Icon" style="height: 20px;">
+          <img src="image/globe.png" alt="Language Icon">
         </a>
-      </div>
-
-      <div id="logout-container">
-        <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">Logout</button>
+        <div id="logout-container">
+          <button onclick="logout()">Logout</button>
+        </div>
       </div>
     </div>
   </div>
@@ -241,7 +251,7 @@
         <h2>BYD ATTO 3</h2>
         <p><strong>$800</strong></p>
 
-        <!-- Button that changes based on login -->
+        <!-- Dynamic button -->
         <a id="auth-button" href="signin.html" style="display: inline-block; background-color: black; color: white; padding: 10px 20px; 
         text-align: center; text-decoration: none; border-radius: 5px; margin-bottom: 30px;">Sign In</a>
 
@@ -293,7 +303,7 @@
   function logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('loggedInName');
-    window.location.href = 'index.html'; // ✅ redirect to homepage
+    window.location.href = 'index.html';
   }
 </script>
 
