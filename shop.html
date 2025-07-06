@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BYD - Shop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -198,8 +198,10 @@
         <div class="header-right-top">
           <span id="welcome-message"></span>
           <a href="faq.html" class="nav-link active">FAQ</a>
-          <a href="#"><img src="image/globe.png" alt="Language"></a>
+           <a href="#" onclick="toggleLanguage()" id="lang-toggle"></a>
+          <img src="image/globe.png" alt="Language Icon" style="height: 20px;"></a>
         </div>
+
         <div id="logout-container">
           <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">Logout</button>
         </div>
@@ -288,9 +290,90 @@
     function logout() {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('loggedInName');
-      window.location.href = 'index.html'; // ✅ Redirects to homepage after logout
+      window.location.href = 'signin.html';
     }
   </script>
+
+  <!-- Language Switch Script -->
+  <script>
+  let currentLang = 'en';
+
+  const translations = {
+    en: {
+      title: "BYD Interior",
+      rhythmic: "Rhythmic Interior",
+      pleasure: "The Pleasure of Driving",
+      grip: "Grip-Style Door Handles",
+      wireless: "Mobile phone wireless charging",
+      panoramic: "Double-layer panoramic anti-pinch skylight",
+      power: "VTOL mobile power station",
+      safety: "Safety",
+      faq: "FAQ",
+      home: "Home",
+      about: "About",
+      vehicle: "Vehicle",
+      interior: "Interior",
+      shop: "Shop",
+      cookies: "Cookies",
+      privacy: "Privacy Policy",
+    },
+    bm: {
+      title: "Rekaan Dalaman BYD",
+      rhythmic: "Rekaan Dalaman Berirama",
+      pleasure: "Keseronokan Memandu",
+      grip: "Pemegang Pintu Gaya Cengkaman",
+      wireless: "Pengecas Tanpa Wayar Telefon Bimbit",
+      panoramic: "Bumbung Panoramik Dua Lapisan Anti-Cubit",
+      power: "Stesen Kuasa Mudah Alih VTOL",
+      safety: "Ciri Keselamatan",
+      faq: "Soalan Lazim",
+      home: "Laman Utama",
+      about: "Tentang Kami",
+      vehicle: "Kenderaan",
+      interior: "Dalaman",
+      shop: "Kedai",
+      cookies: "Kuki",
+      privacy: "Dasar Privasi",
+    }
+  };
+
+  document.getElementById('lang-toggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    currentLang = currentLang === 'en' ? 'bm' : 'en';
+    updateLanguage();
+  });
+
+  function updateLanguage() {
+    const t = translations[currentLang];
+
+    document.title = t.title;
+    document.querySelector('.header-title').textContent = t.title;
+    document.querySelector('h2').textContent = t.rhythmic;
+
+    const links = {
+      faq: t.faq,
+      home: t.home,
+      about: t.about,
+      vehicle: t.vehicle,
+      interior: t.interior,
+      shop: t.shop,
+    };
+
+    const navLinks = document.querySelectorAll("nav a");
+    navLinks.forEach(link => {
+      const key = link.getAttribute('href').replace('.html', '');
+      if (links[key]) link.textContent = links[key];
+    });
+
+    document.querySelectorAll('h3 a').forEach((a, i) => {
+      const keys = ['pleasure', 'grip', 'wireless', 'panoramic', 'power', 'safety'];
+      if (t[keys[i]]) a.textContent = t[keys[i]];
+    });
+
+    document.querySelector('.footer-left a:nth-child(1)').textContent = t.cookies;
+    document.querySelector('.footer-left a:nth-child(3)').textContent = t.privacy;
+  }
+</script>
 
 </body>
 </html>

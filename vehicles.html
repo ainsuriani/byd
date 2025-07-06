@@ -262,13 +262,33 @@
     </a>
 </div>
 
+<!-- Button to Show Vehicle Table -->
+<div style="text-align:center; margin-top: 40px;">
+  <button onclick="loadVehicleTable()" style="
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  ">
+    Click More
+  </button>
+</div>
+
+<!-- Container where table will appear -->
+<div id="tableContainer" style="margin-top: 30px; padding: 20px;"></div>
+
+
 
   <!-- Footer -->
   <footer>
   <div class="footer-container">
     <div class="footer-left">
-      <a href="#">Cookies</a> | 
-      <a href="#">Privacy Policy</a>
+      <a href="cookies.html">Cookies</a> | 
+      <a href="privacypolicy.html">Privacy Policy</a>
     </div>
     <div class="footer-right">
       <a href="https://www.instagram.com/bydmalaysia" target="_blank" aria-label="Instagram">
@@ -286,5 +306,30 @@
     &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
   </div>
 </footer>
+
+<script>
+  function loadVehicleTable() {
+    Promise.all([
+      fetch('vehicles.xml').then(res => res.text()),
+      fetch('vehicles.xsl').then(res => res.text())
+    ]).then(([xmlStr, xslStr]) => {
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(xmlStr, "text/xml");
+      const xsl = parser.parseFromString(xslStr, "text/xml");
+
+      const xsltProcessor = new XSLTProcessor();
+      xsltProcessor.importStylesheet(xsl);
+      const resultDocument = xsltProcessor.transformToFragment(xml, document);
+
+      const container = document.getElementById("tableContainer");
+      container.innerHTML = "";
+      container.appendChild(resultDocument);
+    }).catch(error => {
+      console.error("Error loading XML/XSL:", error);
+      document.getElementById("tableContainer").innerText = "Failed to load vehicle table.";
+    });
+  }
+</script>
+
 </body>
 </html>
