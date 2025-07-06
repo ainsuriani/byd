@@ -61,11 +61,11 @@
 </div>
 
 <script>
-  window.onload = function() {
-    if (localStorage.getItem('isLoggedIn') === 'true') {
-      window.location.href = 'signin.html';
-    }
-  };
+ window.onload = function() {
+  if (localStorage.getItem('isLoggedIn') === 'true') {
+    window.location.href = 'shop.html'; // ✅ redirect away
+  }
+};
 
   function loginUser(event) {
     event.preventDefault();
