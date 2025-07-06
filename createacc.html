@@ -9,11 +9,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background-color: #fff0f6;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,7 +46,6 @@
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
-      box-sizing: border-box;
     }
 
     .form-box input[type="submit"] {
@@ -79,7 +83,6 @@
       padding-right: 40px;
       height: 45px;
       font-size: 1rem;
-      box-sizing: border-box;
     }
 
     .toggle-icon {
@@ -96,6 +99,14 @@
     .toggle-icon:hover {
       color: #f06292;
     }
+
+    /* Optional: Make sure it’s scrollable on small screens */
+    @media (max-height: 600px) {
+      body {
+        align-items: flex-start;
+      }
+    }
+
   </style>
 </head>
 <body>
