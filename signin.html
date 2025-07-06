@@ -13,11 +13,15 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background-color: #ffeaf4;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .form-box {
+      width: 100%;
       max-width: 400px;
-      margin: 60px auto;
       background: white;
       padding: 25px;
       border-radius: 15px;
@@ -129,7 +133,7 @@
       alert("Login successful!");
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('loggedInName', storedUser.name);
-      window.location.href = 'purchasesummary.html'; // Redirect to summary page
+      window.location.href = 'purchasesummary.html'; // ✅ Redirect to summary page
     } else {
       alert("Invalid email or password.");
     }

@@ -13,13 +13,17 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background-color: #fff0f6;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .form-box {
+      width: 100%;
       max-width: 400px;
-      margin: 60px auto;
       background: white;
-      padding: 50px;
+      padding: 30px;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
@@ -46,7 +50,6 @@
       font-weight: bold;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
       transition: background-color 0.3s;
     }
 
@@ -56,7 +59,7 @@
 
     .form-box .login-link {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 0.9rem;
     }
 
@@ -74,6 +77,9 @@
 
     .password-container input {
       padding-right: 40px;
+      height: 45px;
+      font-size: 1rem;
+      box-sizing: border-box;
     }
 
     .toggle-icon {
@@ -107,7 +113,6 @@
     <input type="text" id="city" placeholder="City" required>
     <input type="text" id="state" placeholder="State" required>
 
-    <!-- Password with eye icon -->
     <div class="password-container">
       <input type="password" id="password" placeholder="Password" required>
       <i class="fa-solid fa-eye toggle-icon" onclick="togglePassword()" id="toggleIcon"></i>
