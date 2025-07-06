@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign In - BYD</title>
+
+  <!-- Font Awesome for eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -78,6 +82,11 @@
       cursor: pointer;
       user-select: none;
       font-size: 1.2rem;
+      color: #888;
+    }
+
+    .toggle-icon:hover {
+      color: #f06292;
     }
   </style>
 </head>
@@ -90,7 +99,7 @@
 
     <div class="password-container">
       <input type="password" id="password" placeholder="Password" required>
-      <span class="toggle-icon" onclick="togglePassword()" id="toggleIcon">👁️</span>
+      <i class="fa-solid fa-eye toggle-icon" onclick="togglePassword()" id="toggleIcon"></i>
     </div>
 
     <input type="submit" value="Sign In">
@@ -112,7 +121,7 @@
       alert("Login successful!");
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('loggedInName', storedUser.name);
-      window.location.href = 'purchasesummary.html'; // ✅ Redirect to summary page
+      window.location.href = 'purchasesummary.html'; // ✅ Redirect after login
     } else {
       alert("Invalid email or password.");
     }
@@ -124,10 +133,12 @@
 
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
-      toggleIcon.textContent = "🙈";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
     } else {
       passwordInput.type = "password";
-      toggleIcon.textContent = "👁️";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
     }
   }
 </script>
