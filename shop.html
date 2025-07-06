@@ -173,8 +173,11 @@
       <div class="header-title">BYD Shop</div>
       <div class="header-right">
         <a href="faq.html" class="nav-link active">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language"></a>
+        <span id="welcome-message" style="margin-left: 10px; font-weight: bold;"></span>
+        <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer; margin-left: 10px;">Logout</button>
+        <a href="#"><img src="image/globe.png" alt="Language" style="margin-left: 10px;"></a>
       </div>
+      
     </div>
     <nav>
       <a href="index.html">Home</a>
@@ -246,5 +249,21 @@
       &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
     </div>
   </footer>
+
+  <script>
+    // Show welcome message
+    const name = localStorage.getItem('loggedInName');
+    if (name) {
+      document.getElementById('welcome-message').textContent = `Welcome, ${name}!`;
+    }
+  
+    // Logout function
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('loggedInName');
+      window.location.href = 'signin.html';
+    }
+  </script>
+  
   </body>
   </html>
