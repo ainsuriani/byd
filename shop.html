@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BYD - Shop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -200,6 +200,73 @@
           <a href="faq.html" class="nav-link active">FAQ</a>
           <a href="#"><img src="image/globe.png" alt="Language"></a>
         </div>
+        
+        <script>
+    let currentLanguage = 'en'; // Default
+
+    function toggleLanguage() {
+      currentLanguage = currentLanguage === 'en' ? 'ms' : 'en';
+      switchLanguage(currentLanguage);
+    }
+    function switchLanguage(lang) {
+      const texts = {
+        en: {
+          title: "About BYD",
+          navHome: "Home",
+          navAbout: "About",
+          navVehicle: "Vehicle",
+          navInterior: "Interior",
+          navShop: "Shop",
+          whoTitle: "Who We Are",
+          whoDesc: "BYD (Build Your Dreams) is a global high-tech company leveraging innovation to improve lives. We focus on electronics, automotive, new energy, and rail transit.",
+          missionTitle: "Our Mission",
+          missionDesc: "We aim to lead in clean energy and transport, reduce fossil fuel dependence, and build a sustainable future.",
+          innovationTitle: "Innovation & Sustainability",
+          innovationDesc: "As a top manufacturer of EVs and batteries, BYD pioneers with tech like the Blade Battery and e-Platform 3.0 to drive eco-conscious innovation.",
+          impactTitle: "Global Impact",
+          impactDesc: "Operating in over 50 countries, BYD is shaping clean energy mobility around the world."
+        },
+        ms: {
+          title: "Tentang BYD",
+          navHome: "Laman Utama",
+          navAbout: "Tentang",
+          navVehicle: "Kenderaan",
+          navInterior: "Dalaman",
+          navShop: "Kedai",
+          whoTitle: "Siapa Kami",
+          whoDesc: "BYD (Build Your Dreams) ialah syarikat teknologi tinggi global yang memanfaatkan inovasi untuk memperbaiki kehidupan.",
+          missionTitle: "Misi Kami",
+          missionDesc: "Kami ingin menerajui tenaga bersih dan pengangkutan serta membina masa depan yang lestari.",
+          innovationTitle: "Inovasi & Kelestarian",
+          innovationDesc: "Sebagai peneraju EV dan bateri, BYD menggunakan teknologi seperti Blade Battery dan e-Platform 3.0.",
+          impactTitle: "Kesan Global",
+          impactDesc: "Beroperasi di lebih 50 negara, BYD membentuk mobiliti tenaga bersih di seluruh dunia."
+        }
+      };
+      for (let id in texts[lang]) {
+        document.getElementById(id).innerText = texts[lang][id];
+      }
+    }
+
+    function toggleFAQ(lang) {
+      document.getElementById("faq-en").style.display = lang === 'en' ? 'block' : 'none';
+      document.getElementById("faq-ms").style.display = lang === 'ms' ? 'block' : 'none';
+    }
+
+    document.querySelector('.faq-dropdown').addEventListener('mouseenter', function () {
+      this.querySelector('.faq-content').style.display = 'block';
+    });
+    document.querySelector('.faq-dropdown').addEventListener('mouseleave', function () {
+      this.querySelector('.faq-content').style.display = 'none';
+    });
+    document.querySelector('.language-dropdown').addEventListener('mouseenter', function () {
+      this.querySelector('.dropdown-content').style.display = 'block';
+    });
+    document.querySelector('.language-dropdown').addEventListener('mouseleave', function () {
+      this.querySelector('.dropdown-content').style.display = 'none';
+    });
+  </script>
+
         <div id="logout-container">
           <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">Logout</button>
         </div>
@@ -288,7 +355,7 @@
     function logout() {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('loggedInName');
-      window.location.href = 'index.html'; // ✅ Redirects to homepage after logout
+      window.location.href = 'signin.html';
     }
   </script>
 
