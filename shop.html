@@ -40,6 +40,12 @@
 
     .header-right {
       display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .header-right-top {
+      display: flex;
       align-items: center;
       gap: 10px;
     }
@@ -53,6 +59,15 @@
     .header-right img {
       height: 20px;
       vertical-align: middle;
+    }
+
+    #welcome-message {
+      font-weight: bold;
+    }
+
+    #logout-container {
+      display: none;
+      margin-top: 5px;
     }
 
     nav {
@@ -70,6 +85,13 @@
 
     nav a:hover {
       color: #fff;
+    }
+
+    nav a.active {
+      background-color: #f06292;
+      color: #fff;
+      padding: 0.3em 0.8em;
+      border-radius: 5px;
     }
 
     main {
@@ -159,13 +181,6 @@
       text-align: center;
       margin-top: 0.5em;
     }
-
-    nav a.active {
-      background-color: #f06292;
-      color: #fff;
-      padding: 0.3em 0.8em;
-      border-radius: 5px;
-    }
   </style>
 </head>
 <body>
@@ -180,10 +195,14 @@
       <div class="header-title">BYD Shop</div>
 
       <div class="header-right">
-        <span id="welcome-message" style="font-weight: bold;"></span>
-        <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">Logout</button>
-        <a href="faq.html" class="nav-link active">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language"></a>
+        <div class="header-right-top">
+          <span id="welcome-message"></span>
+          <a href="faq.html" class="nav-link active">FAQ</a>
+          <a href="#"><img src="image/globe.png" alt="Language"></a>
+        </div>
+        <div id="logout-container">
+          <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">Logout</button>
+        </div>
       </div>
     </div>
 
@@ -259,13 +278,13 @@
   </footer>
 
   <script>
-    // Show welcome message
     const name = localStorage.getItem('loggedInName');
+
     if (name) {
       document.getElementById('welcome-message').textContent = `Welcome, ${name}!`;
+      document.getElementById('logout-container').style.display = 'block';
     }
 
-    // Logout function
     function logout() {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('loggedInName');
