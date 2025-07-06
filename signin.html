@@ -30,22 +30,29 @@
       color: #f06292;
     }
 
-    .form-box input {
+    .form-box input[type="email"],
+    .form-box input[type="password"] {
       width: 100%;
-      padding: 12px;
+      padding: 12px 15px;
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
+      box-sizing: border-box;
     }
 
     .form-box input[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
       background-color: #f06292;
       color: white;
       font-weight: bold;
       border: none;
+      border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s;
+      font-size: 1rem;
     }
 
     .form-box input[type="submit"]:hover {
@@ -70,7 +77,6 @@
     }
 
     .password-container input {
-      width: 100%;
       padding-right: 40px;
     }
 
@@ -121,7 +127,7 @@
       alert("Login successful!");
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('loggedInName', storedUser.name);
-      window.location.href = 'purchasesummary.html'; // ✅ Redirect after login
+      window.location.href = 'purchasesummary.html'; // Redirect after login
     } else {
       alert("Invalid email or password.");
     }

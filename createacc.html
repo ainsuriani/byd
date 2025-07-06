@@ -4,12 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Create Account - BYD</title>
+
+  <!-- Font Awesome for eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       background-color: #fff0f6;
     }
+
     .form-box {
       max-width: 400px;
       margin: 60px auto;
@@ -18,32 +23,72 @@
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     .form-box h2 {
       text-align: center;
       margin-bottom: 20px;
+      color: #d63384;
     }
+
     .form-box input {
-      width: 95%;
-      padding: 12px;
+      width: 100%;
+      padding: 12px 15px;
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
     }
+
     .form-box input[type="submit"] {
       background-color: #f472b6;
       color: white;
       font-weight: bold;
       border: none;
-      width: 95%;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
     }
+
+    .form-box input[type="submit"]:hover {
+      background-color: #e64980;
+    }
+
     .form-box .login-link {
       text-align: center;
-      margin-top: 15px;
+      margin-top: 20px;
+      font-size: 0.9rem;
     }
+
     .form-box .login-link a {
       color: #d63384;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .password-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .password-container input {
+      padding-right: 40px;
+    }
+
+    .toggle-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      user-select: none;
+      font-size: 1.2rem;
+      color: #888;
+    }
+
+    .toggle-icon:hover {
+      color: #f06292;
     }
   </style>
 </head>
@@ -54,21 +99,26 @@
   <form onsubmit="registerUser(event)">
     <input type="text" id="name" placeholder="Full Name" required>
     <input type="text" id="gender" placeholder="Gender" required>
-    <input type="integer" id="phone number" placeholder="Phone number" required>
+    <input type="tel" id="phone" placeholder="Phone number" required>
     <input type="email" id="email" placeholder="Email" required>
-    <input type="text" id="address" placeholder="Address 1" required>
-    <input type="text" id="address" placeholder="Address 2" required>
-    <input type="integer" id="postcode" placeholder="Postcode" required>
+    <input type="text" id="address1" placeholder="Address 1" required>
+    <input type="text" id="address2" placeholder="Address 2">
+    <input type="text" id="postcode" placeholder="Postcode" required>
     <input type="text" id="city" placeholder="City" required>
     <input type="text" id="state" placeholder="State" required>
-    <input type="password" id="password" placeholder="Password" required>
+
+    <!-- Password with eye icon -->
+    <div class="password-container">
+      <input type="password" id="password" placeholder="Password" required>
+      <i class="fa-solid fa-eye toggle-icon" onclick="togglePassword()" id="toggleIcon"></i>
+    </div>
+
     <input type="submit" value="Register">
   </form>
+
   <div class="login-link">
-    Already have an account? <a href="signin.html">Sign In</a>
-    <br>
-    <br>
-    By creating an account, you agree to our Terms of Service and Privacy Policy 
+    Already have an account? <a href="signin.html">Sign In</a><br><br>
+    By creating an account, you agree to our Terms of Service and Privacy Policy.
   </div>
 </div>
 
@@ -83,6 +133,21 @@
     localStorage.setItem('bydUser', JSON.stringify(user));
     alert("Account created successfully!");
     window.location.href = "signin.html";
+  }
+
+  function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleIcon.classList.remove("fa-eye");
+      toggleIcon.classList.add("fa-eye-slash");
+    } else {
+      passwordInput.type = "password";
+      toggleIcon.classList.remove("fa-eye-slash");
+      toggleIcon.classList.add("fa-eye");
+    }
   }
 </script>
 
