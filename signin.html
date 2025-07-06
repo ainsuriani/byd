@@ -61,7 +61,6 @@
 </div>
 
 <script>
-
   function loginUser(event) {
     event.preventDefault();
     const email = document.getElementById('email').value.trim();
@@ -73,12 +72,13 @@
       alert("Login successful!");
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('loggedInName', storedUser.name);
-      window.location.href = 'shop.html';
+      window.location.href = 'purchasesummary.html'; // ✅ redirect here after login
     } else {
       alert("Invalid email or password.");
     }
   }
 </script>
+
 
 </body>
 </html>

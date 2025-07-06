@@ -166,6 +166,7 @@
 <body>
   <!-- Header -->
   <header>
+    <h2 id="welcome-name" style="text-align:center; margin-top: 10px;"></h2>
     <div class="header-container">
       <div class="header-left">
         <img src="image/bydlogo.svg" alt="BYD Logo">
@@ -270,5 +271,13 @@
       &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
     </div>
   </footer>
+
+  <script>
+    const name = localStorage.getItem('loggedInName');
+    if (name) {
+      document.getElementById('welcome-name').textContent = `Welcome, ${name}! Here is your purchase summary:`;
+    }
+  </script>
+  
   </body>
   </html>
