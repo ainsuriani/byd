@@ -163,10 +163,13 @@
       text-align: center;
     }
 
-    .features h2 {
-      font-size: 1.8em;
-      color: #d63384;
-      margin-bottom: 1em;
+    .features-box {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+      padding: 2em;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .feature-grid {
@@ -237,27 +240,6 @@
       text-align: center;
       margin-top: 0.5em;
     }
-    .features {
-      background-color: #fff;
-      padding: 3em 1em;
-      text-align: center;
-    }
-
-    .features-box {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
-      padding: 2em;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .features h2 {
-      font-size: 1.8em;
-      color: #d63384;
-      margin-bottom: 1em;
-    }
-
   </style>
 </head>
 <body>
@@ -289,13 +271,13 @@
     <main>
       <section class="hero-intro">
         <p><span id="typed-text"></span><span class="cursor">|</span></p>
-        <p class="subtext">Discover the innovation, power, and sustainability of BYD vehicles.</p>
-        <a href="vehicles.html" class="cta-button">Explore Our Cars</a>
+        <p class="subtext" id="hero-subtext">Discover the innovation, power, and sustainability of BYD vehicles.</p>
+        <a href="vehicles.html" class="cta-button" id="cta-button">Explore Our Cars</a>
       </section>
 
       <section class="video-container">
-        <h2>Unleash the Future</h2>
-        <p class="video-caption">Experience our latest BYD innovations in motion.</p>
+        <h2 id="video-title">Unleash the Future</h2>
+        <p class="video-caption" id="video-caption">Experience our latest BYD innovations in motion.</p>
         <video autoplay muted loop playsinline>
           <source src="video.mp4/Unleash the Future with BYD Seal.mp4" type="video/mp4">
           Your browser does not support the video tag.
@@ -304,45 +286,46 @@
 
       <section class="features">
         <div class="features-box">
-          <h2>Why Choose BYD?</h2>
+          <h2 id="features-title">Why Choose BYD?</h2>
           <div class="feature-grid">
             <div class="feature-item">
               <i class="fas fa-bolt"></i>
-              <h3>Electric Performance</h3>
-              <p>Powerful EVs with cutting-edge battery technology like the Blade Battery.</p>
+              <h3 id="feature1-title">Electric Performance</h3>
+              <p id="feature1-desc">Powerful EVs with cutting-edge battery technology like the Blade Battery.</p>
             </div>
             <div class="feature-item">
               <i class="fas fa-microchip"></i>
-              <h3>Smart Technology</h3>
-              <p>Seamless tech experience with e-platform 3.0 and intelligent interiors.</p>
+              <h3 id="feature2-title">Smart Technology</h3>
+              <p id="feature2-desc">Seamless tech experience with e-platform 3.0 and intelligent interiors.</p>
             </div>
             <div class="feature-item">
               <i class="fas fa-globe-asia"></i>
-              <h3>Global Innovation</h3>
-              <p>Trusted in over 50 countries with a focus on sustainable progress.</p>
+              <h3 id="feature3-title">Global Innovation</h3>
+              <p id="feature3-desc">Trusted in over 50 countries with a focus on sustainable progress.</p>
             </div>
           </div>
         </div>
       </section>
       
-    <!-- Footer -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-left">
-          <a href="cookies.html">Cookies</a> | 
-          <a href="privacypolicy.html">Privacy Policy</a>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-container">
+          <div class="footer-left">
+            <a href="cookies.html">Cookies</a> | 
+            <a href="privacypolicy.html">Privacy Policy</a>
+          </div>
+          <div class="footer-right">
+            <a href="https://www.instagram.com/bydmalaysia" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/bydmalaysia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@bydmalaysia" target="_blank"><i class="fab fa-tiktok"></i></a>
+          </div>
         </div>
-        <div class="footer-right">
-          <a href="https://www.instagram.com/bydmalaysia" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/bydmalaysia" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.tiktok.com/@bydmalaysia" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-      <div class="footer-bottom" id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</div>
-    </footer>
+        <div class="footer-bottom" id="footer-text">© 2025 BYD Malaysia Sdn. Bhd. All rights reserved.</div>
+      </footer>
+    </main>
   </div>
 
-  <!-- JavaScript for Typing + Language Toggle -->
+  <!-- JavaScript -->
   <script>
     const phrases = [
       "Welcome to BYD - Build Your Dreams.",
@@ -384,7 +367,18 @@
           "navAbout": "About",
           "navVehicle": "Vehicle",
           "navInterior": "Interior",
-          "navShop": "Shop"
+          "navShop": "Shop",
+          "hero-subtext": "Discover the innovation, power, and sustainability of BYD vehicles.",
+          "cta-button": "Explore Our Cars",
+          "video-title": "Unleash the Future",
+          "video-caption": "Experience our latest BYD innovations in motion.",
+          "features-title": "Why Choose BYD?",
+          "feature1-title": "Electric Performance",
+          "feature1-desc": "Powerful EVs with cutting-edge battery technology like the Blade Battery.",
+          "feature2-title": "Smart Technology",
+          "feature2-desc": "Seamless tech experience with e-platform 3.0 and intelligent interiors.",
+          "feature3-title": "Global Innovation",
+          "feature3-desc": "Trusted in over 50 countries with a focus on sustainable progress."
         },
         ms: {
           "main-heading": "Laman Utama BYD",
@@ -393,9 +387,21 @@
           "navAbout": "Tentang",
           "navVehicle": "Kenderaan",
           "navInterior": "Dalaman",
-          "navShop": "Kedai"
+          "navShop": "Kedai",
+          "hero-subtext": "Temui inovasi, kuasa, dan kelestarian kenderaan BYD.",
+          "cta-button": "Terokai Kereta Kami",
+          "video-title": "Bebaskan Masa Depan",
+          "video-caption": "Alami inovasi terkini BYD dalam gerakan.",
+          "features-title": "Mengapa Pilih BYD?",
+          "feature1-title": "Prestasi Elektrik",
+          "feature1-desc": "EV berkuasa dengan teknologi bateri canggih seperti Blade Battery.",
+          "feature2-title": "Teknologi Pintar",
+          "feature2-desc": "Pengalaman teknologi lancar dengan e-platform 3.0 dan dalaman pintar.",
+          "feature3-title": "Inovasi Global",
+          "feature3-desc": "Dipercayai di lebih 50 negara dengan fokus kepada kemajuan lestari."
         }
       };
+
       for (const id in text[lang]) {
         const element = document.getElementById(id);
         if (element) {
