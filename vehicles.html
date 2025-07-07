@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BYD - Interior</title>
+  <title>Vehicle</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
@@ -13,7 +13,6 @@
       color: #111;
     }
 
-    /*---BYD VEHICLE IMAGE SIZE---*/
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -22,19 +21,7 @@
       justify-items: center;
       margin-top: 2em;
     }
-    .grid-item{
-      width: 250px;
-      height: 250px;
-      border: 2px solid #ccc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: #f06292;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-    /*--Clickable Card Styling--*/
+
     .grid-container a.grid-item {
       text-decoration: none;
       color: inherit;
@@ -50,10 +37,12 @@
       border-radius: 10px;
       transition: transform 0.3s ease;
     }
+
     .grid-container a.grid-item:hover {
       transform: scale(1.05);
       cursor:pointer;
     }
+
     .grid-item img {
       width: 220px;
       height: 220px;
@@ -87,16 +76,16 @@
       color: #000;
     }
 
-    .header-right a {
-      color: #000;
-      margin-left: 1em;
-      font-weight: bold;
-      text-decoration: none;
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1em;
     }
 
-    .header-right img {
-      height: 20px;
-      vertical-align: middle;
+    .header-right a {
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     nav {
@@ -116,6 +105,13 @@
       color: #fff;
     }
 
+    nav a.active {
+      background-color: #f06292;
+      color: #fff;
+      padding: 0.3em 0.8em;
+      border-radius: 5px;
+    }
+
     main {
       padding: 2em 1em;
       text-align: center;
@@ -130,37 +126,6 @@
       color: #f06292;
       font-size: 1.8em;
       margin-bottom: 1em;
-    }
-
-    .image-block,
-    .text-block {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 2em;
-      margin: 2em 0;
-    }
-
-    .image-block img,
-    .text-block img {
-      width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .text-box {
-      max-width: 600px;
-      text-align: left;
-      border: 2px solid #f06292;
-      padding: 1em 1.5em;
-      border-radius: 12px;
-      background-color: rgba(240, 98, 146, 0.1);
-    }
-
-    .text-box h3 {
-      color: #f06292;
-      margin-top: 0;
     }
 
     footer {
@@ -203,48 +168,43 @@
       text-align: center;
       margin-top: 0.5em;
     }
-    nav a.active {
-  background-color: #f06292;
-  color: #fff;
-  padding: 0.3em 0.8em;
-  border-radius: 5px;
-}
-
   </style>
 </head>
 <body>
-  
+
   <!-- Header -->
   <header>
     <div class="header-container">
       <div class="header-left">
-        <img src="image/bydlogo.png" alt="BYD Logo">
+        <img src="image/bydlogo.svg" alt="BYD Logo">
       </div>
-      <div class="header-title">Vehicle</div>
+      <div class="header-title" id="title">Vehicle</div>
       <div class="header-right">
-        <a href="faq.html">FAQ</a>
-        <a href="#"><img src="image/globe.png" alt="Language"></a>
+        <a href="faq.html" id="faq-link">FAQ</a>
+        <a href="#" onclick="toggleLanguage()" id="lang-toggle">
+          <img src="image/globe.png" alt="Language Icon" style="height: 20px;">
+        </a>
       </div>
     </div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="vehicles.html" class="nav-link active">Vehicle</a>
-      <a href="interior.html">Interior</a>
-      <a href="shop.html">Shop</a>
+      <a href="index.html" id="nav-home">Home</a>
+      <a href="about.html" id="nav-about">About</a>
+      <a href="vehicles.html" class="nav-link active" id="nav-vehicle">Vehicle</a>
+      <a href="interior.html" id="nav-interior">Interior</a>
+      <a href="shop.html" id="nav-shop">Shop</a>
     </nav>
   </header>
 
-  <!-- Main -->
-
+  <!-- Button -->
   <div style="text-align:center; padding: 1em; background-color: #ffe3ec;">
-  <button onclick="window.location.href='vehicles.xml'" 
-          style="padding: 10px 20px; background-color: #f06292; color: white; border: none; border-radius: 5px; font-size: 1em; cursor: pointer;">
-    Click More
-  </button>
-</div>
+    <button onclick="window.location.href='vehicles.xml'" 
+            style="padding: 10px 20px; background-color: #f06292; color: white; border: none; border-radius: 5px; font-size: 1em; cursor: pointer;">
+      Click More
+    </button>
+  </div>
 
-<div class="grid-container">
+  <!-- Grid -->
+  <div class="grid-container">
     <a href="BYD-SEAL.html" class="grid-item">
       <img src="image/BYD SEAL.webp" alt="BYD SEAL"/>
       <p>BYD SEAL</p>
@@ -269,31 +229,81 @@
       <img src="image/BYD SEALION.png" alt="BYD SEALION"/>
       <p>BYD SEALION</p>
     </a>
-</div>
-
+  </div>
 
   <!-- Footer -->
   <footer>
-  <div class="footer-container">
-    <div class="footer-left">
-      <a href="#">Cookies</a> | 
-      <a href="#">Privacy Policy</a>
+    <div class="footer-container">
+      <div class="footer-left">
+        <a href="cookies.html" id="cookies-link">Cookies</a> | 
+        <a href="privacypolicy.html" id="privacy-link">Privacy Policy</a>
+      </div>
+      <div class="footer-right">
+        <a href="https://www.instagram.com/bydmalaysia" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/bydmalaysia" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.tiktok.com/@bydmalaysia" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
     </div>
-    <div class="footer-right">
-      <a href="https://www.instagram.com/bydmalaysia" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/bydmalaysia" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.tiktok.com/@bydmalaysia" target="_blank" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i>
-      </a>
+    <div class="footer-bottom">
+      &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
     </div>
-</div>
-  <div class="footer-bottom">
-    &copy; 2025 BYD Malaysia Sdn. Bhd. All rights reserved.
-  </div>
-</footer>
+  </footer>
+
+  <!-- Language Toggle Script -->
+  <script>
+    let currentLang = 'en';
+
+    const translations = {
+      en: {
+        title: "Vehicle",
+        faq: "FAQ",
+        home: "Home",
+        about: "About",
+        vehicle: "Vehicle",
+        interior: "Interior",
+        shop: "Shop",
+        cookies: "Cookies",
+        privacy: "Privacy Policy",
+      },
+      bm: {
+        title: "Kenderaan",
+        faq: "Soalan Lazim",
+        home: "Laman Utama",
+        about: "Tentang Kami",
+        vehicle: "Kenderaan",
+        interior: "Dalaman",
+        shop: "Kedai",
+        cookies: "Kuki",
+        privacy: "Dasar Privasi",
+      }
+    };
+
+    document.getElementById('lang-toggle').addEventListener('click', function (e) {
+      e.preventDefault();
+      currentLang = currentLang === 'en' ? 'bm' : 'en';
+      updateLanguage();
+    });
+
+    function updateLanguage() {
+      const t = translations[currentLang];
+      document.title = t.title;
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('faq-link').textContent = t.faq;
+      document.getElementById('nav-home').textContent = t.home;
+      document.getElementById('nav-about').textContent = t.about;
+      document.getElementById('nav-vehicle').textContent = t.vehicle;
+      document.getElementById('nav-interior').textContent = t.interior;
+      document.getElementById('nav-shop').textContent = t.shop;
+      document.getElementById('cookies-link').textContent = t.cookies;
+      document.getElementById('privacy-link').textContent = t.privacy;
+    }
+  </script>
+
 </body>
 </html>
