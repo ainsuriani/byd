@@ -164,6 +164,18 @@
   </style>
 </head>
 
+<header>
+
+        <div id="logout-container">
+          <button onclick="logout()" style="background-color: #f06292; border: none; color: white; padding: 6px 12px; border-radius: 5px; cursor: pointer;">
+            <span class="lang-en">Logout</span>
+            <span class="lang-bm" style="display: none;">Log Keluar</span></button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
 <body>
   <!--content-->
   <div style="padding: 20px;">
@@ -227,6 +239,21 @@
     </div>
   </section>
 </div>
+
+<script>
+    const name = localStorage.getItem('loggedInName');
+
+    if (name) {
+      document.getElementById('welcome-message').textContent = `Welcome, ${name}!`;
+      document.getElementById('logout-container').style.display = 'block';
+    }
+
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('loggedInName');
+      window.location.href = 'index.html';
+    }
+</script>
     
 
   </body>
