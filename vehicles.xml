@@ -2,46 +2,46 @@
 <?xml-stylesheet type="text/xsl" href="vehicles.xsl"?>
 
 <vehicles>
-    <details>
-        <carmodel>BYD SEAL</carmodel>
-        <horsepower>201-523 HP</horsepower>
-        <battery>61-82 kWh</battery>
-        <price>RM 251,600-RM 289,000</price>
-        <topspeed>220KM/H</topspeed>
-    </details>
-    <details>
-        <carmodel>BYD ATTO 3</carmodel>
-        <horsepower>201 HP</horsepower>
-        <battery>49.92-60.48 kWh</battery>
-        <price>RM 149,800-RM 167,000</price>
-        <topspeed>160KM/H</topspeed>
-    </details>
-    <details>
-        <carmodel>BYD DOLPHIN</carmodel>
-        <horsepower>94-204 HP</horsepower>
-        <battery>44.9-60.48 kWh</battery>
-        <price>RM 99,900-RM 125,000</price>
-        <topspeed>160KM/H</topspeed>
-    </details>
-    <details>
-        <carmodel>BYD HAN</carmodel>
-        <horsepower>510 HP</horsepower>
-        <battery>85.4 kWh</battery>
-        <price>RM 299,800</price>
-        <topspeed>180KM/H</topspeed>
-    </details>
-    <details>
-        <carmodel>BYD TANG</carmodel>
-        <horsepower>509 HP</horsepower>
-        <battery>86.4 kWh</battery>
-        <price>RM 279,800</price>
-        <topspeed>180KM/H</topspeed>
-    </details>
-    <details>
-        <carmodel>BYD SEALION</carmodel>
-        <horsepower>313-530 HP</horsepower>
-        <battery>71.8-87 kWh</battery>
-        <price>RM 210,000-RM 260,000</price>
-        <topspeed>200KM/H</topspeed>
-    </details>
+  <details>
+    <carmodel>BYD SEAL</carmodel>
+    <horsepower>201-523 HP</horsepower>
+    <battery>61-82 kWh</battery>
+    <price>RM 251,600 - RM 289,000</price>
+    <topspeed>220 KM/H</topspeed>
+  </details>
+  <details>
+    <carmodel>BYD ATTO 3</carmodel>
+    <horsepower>201 HP</horsepower>
+    <battery>49.92-60.48 kWh</battery>
+    <price>RM 149,800 - RM 167,000</price>
+    <topspeed>160 KM/H</topspeed>
+  </details>
+  <details>
+    <carmodel>BYD DOLPHIN</carmodel>
+    <horsepower>94-204 HP</horsepower>
+    <battery>44.9-60.48 kWh</battery>
+    <price>RM 99,900 - RM 125,000</price>
+    <topspeed>160 KM/H</topspeed>
+  </details>
+  <details>
+    <carmodel>BYD HAN</carmodel>
+    <horsepower>510 HP</horsepower>
+    <battery>85.4 kWh</battery>
+    <price>RM 299,800</price>
+    <topspeed>180 KM/H</topspeed>
+  </details>
+  <details>
+    <carmodel>BYD TANG</carmodel>
+    <horsepower>509 HP</horsepower>
+    <battery>86.4 kWh</battery>
+    <price>RM 279,800</price>
+    <topspeed>180 KM/H</topspeed>
+  </details>
+  <details>
+    <carmodel>BYD SEALION</carmodel>
+    <horsepower>313-530 HP</horsepower>
+    <battery>71.8-87 kWh</battery>
+    <price>RM 210,000 - RM 260,000</price>
+    <topspeed>200 KM/H</topspeed>
+  </details>
 </vehicles>
