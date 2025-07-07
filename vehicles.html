@@ -221,98 +221,52 @@
     </div>
   </footer>
 
-  <!-- Script: XML Load -->
+  <!-- Load XML with JavaScript -->
   <script>
     function loadVehicleTable() {
-      Promise.all([
-        fetch('vehicles.xml').then(res => res.text()),
-        fetch('vehicles.xsl').then(res => res.text())
-      ]).then(([xmlStr, xslStr]) => {
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(xmlStr, "text/xml");
-        const xsl = parser.parseFromString(xslStr, "text/xml");
-
-        const xsltProcessor = new XSLTProcessor();
-        xsltProcessor.importStylesheet(xsl);
-        const resultDocument = xsltProcessor.transformToFragment(xml, document);
-
-        const container = document.getElementById("tableContainer");
-        container.innerHTML = "";
-        container.appendChild(resultDocument);
-      }).catch(error => {
-        console.error("Error loading XML/XSL:", error);
-        document.getElementById("tableContainer").innerText = "Failed to load vehicle table.";
-      });
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "vehicles.xml", true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          displayVehicleTable(xhr);
+        }
+      };
+      xhr.send();
     }
-  </script>
 
-  <!-- Script: Language Toggle -->
-  <script>
-    let currentLang = 'en';
+    function displayVehicleTable(xml) {
+      const xmlDoc = xml.responseXML;
+      const vehicles = xmlDoc.getElementsByTagName("details");
 
-    const translations = {
-      en: {
-        title: "Vehicle",
-        home: "Home",
-        about: "About",
-        vehicle: "Vehicle",
-        interior: "Interior",
-        shop: "Shop",
-        faq: "FAQ",
-        car1: "BYD SEAL",
-        car2: "BYD ATTO 3",
-        car3: "BYD DOLPHIN",
-        car4: "BYD HAN",
-        car5: "BYD TANG",
-        car6: "BYD SEALION",
-        btnMore: "Click More",
-        cookies: "Cookies",
-        privacy: "Privacy Policy"
-      },
-      bm: {
-        title: "Kenderaan",
-        home: "Laman Utama",
-        about: "Tentang Kami",
-        vehicle: "Kenderaan",
-        interior: "Dalaman",
-        shop: "Kedai",
-        faq: "Soalan Lazim",
-        car1: "BYD SEAL",
-        car2: "BYD ATTO 3",
-        car3: "BYD DOLPHIN",
-        car4: "BYD HAN",
-        car5: "BYD TANG",
-        car6: "BYD SEALION",
-        btnMore: "Klik Lagi",
-        cookies: "Kuki",
-        privacy: "Dasar Privasi"
+      let table = `
+        <table style="border-collapse: collapse; width: 90%; margin: auto; background-color: #ffe0ec;">
+          <tr style="background-color: #f06292; color: white;">
+            <th style="border: 1px solid #f06292; padding: 10px;">Model</th>
+            <th style="border: 1px solid #f06292; padding: 10px;">Horsepower</th>
+            <th style="border: 1px solid #f06292; padding: 10px;">Battery</th>
+            <th style="border: 1px solid #f06292; padding: 10px;">Price</th>
+            <th style="border: 1px solid #f06292; padding: 10px;">Top Speed</th>
+          </tr>`;
+
+      for (let i = 0; i < vehicles.length; i++) {
+        const model = vehicles[i].getElementsByTagName("carmodel")[0].textContent;
+        const hp = vehicles[i].getElementsByTagName("horsepower")[0].textContent;
+        const battery = vehicles[i].getElementsByTagName("battery")[0].textContent;
+        const price = vehicles[i].getElementsByTagName("price")[0].textContent;
+        const speed = vehicles[i].getElementsByTagName("topspeed")[0].textContent;
+
+        table += `
+          <tr>
+            <td style="border: 1px solid #f06292; padding: 10px; text-align:center;">${model}</td>
+            <td style="border: 1px solid #f06292; padding: 10px; text-align:center;">${hp}</td>
+            <td style="border: 1px solid #f06292; padding: 10px; text-align:center;">${battery}</td>
+            <td style="border: 1px solid #f06292; padding: 10px; text-align:center;">${price}</td>
+            <td style="border: 1px solid #f06292; padding: 10px; text-align:center;">${speed}</td>
+          </tr>`;
       }
-    };
 
-    function toggleLanguage() {
-      currentLang = currentLang === 'en' ? 'bm' : 'en';
-      updateLanguage();
-    }
-
-    function updateLanguage() {
-      const t = translations[currentLang];
-      document.title = t.title;
-      document.getElementById("title").textContent = t.title;
-      document.getElementById("nav-home").textContent = t.home;
-      document.getElementById("nav-about").textContent = t.about;
-      document.getElementById("nav-vehicle").textContent = t.vehicle;
-      document.getElementById("nav-interior").textContent = t.interior;
-      document.getElementById("nav-shop").textContent = t.shop;
-      document.getElementById("nav-faq").textContent = t.faq;
-      document.getElementById("car1").textContent = t.car1;
-      document.getElementById("car2").textContent = t.car2;
-      document.getElementById("car3").textContent = t.car3;
-      document.getElementById("car4").textContent = t.car4;
-      document.getElementById("car5").textContent = t.car5;
-      document.getElementById("car6").textContent = t.car6;
-      document.getElementById("btn-more").textContent = t.btnMore;
-      document.getElementById("footer-cookies").textContent = t.cookies;
-      document.getElementById("footer-privacy").textContent = t.privacy;
+      table += "</table>";
+      document.getElementById("tableContainer").innerHTML = table;
     }
   </script>
 
